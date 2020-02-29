@@ -5,11 +5,22 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 
-<th:block th:include="includes/header-style.css"></th:block>
+<link rel="stylesheet" href="header-style.css">
 
 <body>
 
 <th:block th:include="includes/header.html"> </th:block>
+
+<div class="messages-container" style="display: block; width: 40vw; margin-left: 30vw">
+    <div th:each="messageItem, state : ${messages}" class="message" style="margin-top: 20px">
+        <div class="message-header" style="display: flex; margin-bottom: 10px">
+            <span th:text="${messageItem.username}" style="margin-left: 0; margin-right: auto; font-size: 20pt; padding: 0"></span>
+            <span th:text="${messageItem.date}" style="padding-top: 10px"></span>
+        </div>
+        <div class="message-text" style="font-size: 14pt" th:text="${messageItem.text}"></div>
+    </div>
+    <th:block th:include="includes/message/send.html"></th:block>
+</div>
 
 </body>
 </html>

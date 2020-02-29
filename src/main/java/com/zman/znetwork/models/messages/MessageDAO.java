@@ -17,23 +17,24 @@ public class MessageDAO {
 
     }
 
-    public ArrayList<Message> selectItems (int parent_id, int offset) {
+    public ArrayList<Message> selectItems (int receiver, int offset) {
 
-        String sql = "SELECT mes_id,parent_id,admin,message,username,DATE_FORMAT(`date`, '%H:%i') FROM messages WHERE parent_id=? ORDER BY mes_id DESC LIMIT ?, 50";
+        String sql = "SELECT id,parent_id,receiver,username,text,DATE_FORMAT(`date`, '%H:%i') FROM messages WHERE receiver=? ORDER BY id DESC LIMIT ?, 50";
 
         try {
-            ArrayList<Message> items = (ArrayList) jdbcTemplate.query(sql, new Object[]{parent_id, offset}, new MessageMapper());
-            Collections.reverse(items);
+            ArrayList<Message> items = (ArrayList) jdbcTemplate.query(sql, new Object[]{receiver, offset}, new MessageMapper());
+            //Collections.reverse(items);
             return items;
         }
         catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
     }
 
-    public boolean insert (int parent_id, String message, String username, byte admin) {
+    public boolean insert (int parent_id, String text, String username, int receiver) {
 
-        int update = jdbcTemplate.update("INSERT INTO messages(parent_id,admin,message,username) VALUES(?,?,?,?)", parent_id, admin, message, username);
+        int update = jdbcTemplate.update("INSERT INTO messages(parent_id,receiver,text,username) VALUES(?,?,?,?)", parent_id, receiver, text, username);
 
         return update > 0;
     }

@@ -10,12 +10,12 @@ public class MessageMapper implements RowMapper<Message> {
     public Message mapRow(ResultSet rs, int rowNum) throws SQLException {
 
         return new Message(
-                rs.getLong("mes_id"),
+                rs.getLong("id"),
+                rs.getInt("parent_id"),
+                rs.getInt("receiver"),
                 rs.getString("username"),
-                rs.getByte("admin"),
-                rs.getString("message"),
-                rs.getString("DATE_FORMAT(`date`, '%H:%i')"),
-                rs.getInt("parent_id")
+                rs.getString("text"),
+                rs.getString("DATE_FORMAT(`date`, '%H:%i')")
         );
     }
 }

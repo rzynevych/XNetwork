@@ -3,23 +3,23 @@ package com.zman.znetwork.models.messages;
 public class Message {
 
     private long id;
-    private String username;
-    private byte admin;
-    private String message;
-    private String date;
     private int parent_id;
+    private int receiver;
+    private String username;
+    private String text;
+    private String date;
 
     public Message () {
 
     }
 
-    public Message(long id, String username, byte admin, String message, String date, int parent_id) {
+    public Message(long id, int parent_id, int receiver, String username, String text, String date) {
         this.id = id;
-        this.username = username;
-        this.admin = admin;
-        this.message = message;
-        this.date = date;
         this.parent_id = parent_id;
+        this.receiver = receiver;
+        this.username = username;
+        this.text = text;
+        this.date = date;
     }
 
     public long getId() {
@@ -30,36 +30,20 @@ public class Message {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public int getReceiver() {
+        return receiver;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setReceiver(int receiver) {
+        this.receiver = receiver;
     }
 
-    public byte getAdmin() {
-        return admin;
+    public String getText() {
+        return text;
     }
 
-    public void setAdmin(byte admin) {
-        this.admin = admin;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
+    public void setText(String text) {
+        this.text = text;
     }
 
     public int getParent_id() {
@@ -68,5 +52,21 @@ public class Message {
 
     public void setParent_id(int parent_id) {
         this.parent_id = parent_id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }
