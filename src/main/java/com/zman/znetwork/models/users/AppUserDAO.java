@@ -22,4 +22,14 @@ public class AppUserDAO {
             return null;
         }
     }
+
+    public AppUser getByUsername (String username) {
+        String sql = "SELECT * FROM users WHERE username=? LIMIT 1";
+
+        try {
+            return jdbcTemplate.queryForObject(sql, new Object[] { username }, new AppUserMapper());
+        } catch (Exception e) {
+            return null;
+        }
+    }
 }

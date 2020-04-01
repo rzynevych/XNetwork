@@ -1,4 +1,4 @@
-package com.zman.znetwork.models.web;
+package com.zman.znetwork.web;
 
 import com.zman.znetwork.models.messages.Message;
 import com.zman.znetwork.models.messages.MessageDAO;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.ArrayList;
 
 @Controller
-public class WebController {
+public class MainController {
 
     @Autowired
     private AppUserDAO appUserDAO;
@@ -26,6 +26,12 @@ public class WebController {
     public String greeting(Model model) {
         model.addAttribute("name", "zman");
         return "greeting";
+    }
+
+    @GetMapping("/login")
+    public String login() {
+
+        return "login";
     }
 
     @GetMapping("/posts")
