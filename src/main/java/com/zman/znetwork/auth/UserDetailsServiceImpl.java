@@ -23,17 +23,16 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        AppUser appUser = appUserDAO.getByUsername(userName);
+        AppUser appUser = appUserDAO.getByEmail(userName);
 
         if (appUser == null) {
             throw new UsernameNotFoundException("User " + userName + " was not found in the database");
         }
 
-        List<GrantedAuthority> grantList = new ArrayList<GrantedAuthority>();
-        grantList.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        List<GrantedAuthority> grantList = new ArrayList<>();
+        grantList.add(new SimpleGrantedAuthority("ROLE_USER"));
 
         return new UserInfo(new User(appUser.getUsername(),
                 appUser.getPassword(), grantList), appUser);
     }
-
 }

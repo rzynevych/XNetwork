@@ -32,4 +32,25 @@ public class AppUserDAO {
             return null;
         }
     }
+
+    public AppUser getByEmail (String email) {
+        String sql = "SELECT * FROM users WHERE email=? LIMIT 1";
+
+        try {
+            return jdbcTemplate.queryForObject(sql, new Object[] { email }, new AppUserMapper());
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public void insert(AppUser user) {
+
+        String sql = "INSERT INTO users (email, username, token, validate, password) VALUES (?,?,?,?,?)";
+
+        try {
+            jdbcTemplate.update(sql, user.getEmail(), user.getUsername(), user.getToken(), user.getValidate(), user.getPassword());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
