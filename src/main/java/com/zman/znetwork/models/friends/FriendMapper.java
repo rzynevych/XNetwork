@@ -1,15 +1,16 @@
-package com.zman.znetwork.models.users;
+package com.zman.znetwork.models.friends;
+
+import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import org.springframework.jdbc.core.RowMapper;
 
-public class AppUserMapper implements RowMapper<AppUser> {
+public class FriendMapper implements RowMapper<Friend> {
 
     @Override
-    public AppUser mapRow(ResultSet rs, int rowNum) throws SQLException {
+    public Friend mapRow(ResultSet rs, int rowNum) throws SQLException {
 
-        return new AppUser(
+        return new Friend(
                 rs.getInt("user_id"),
                 rs.getString("email"),
                 rs.getString("reg_date"),

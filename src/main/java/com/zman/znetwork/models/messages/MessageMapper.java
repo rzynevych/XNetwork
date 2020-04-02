@@ -10,7 +10,7 @@ public class MessageMapper implements RowMapper<Message> {
     public Message mapRow(ResultSet rs, int rowNum) throws SQLException {
 
         return new Message(
-                rs.getLong("id"),
+                rs.getLong("message_id"),
                 rs.getInt("parent_id"),
                 rs.getInt("receiver"),
                 rs.getString("username"),

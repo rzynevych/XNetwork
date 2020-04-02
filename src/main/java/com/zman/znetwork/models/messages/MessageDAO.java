@@ -17,13 +17,14 @@ public class MessageDAO {
 
     }
 
-    public ArrayList<Message> selectItems (int receiver, int offset) {
+    public ArrayList<Message> selectItems(String key, int value, int offset) {
 
-        String sql = "SELECT id,parent_id,receiver,username,text,DATE_FORMAT(`date`, '%H:%i') FROM messages WHERE receiver=? ORDER BY id DESC LIMIT ?, 50";
+        String sql = "SELECT message_id,parent_id,receiver,username,text,DATE_FORMAT(`date`, '%H:%i') FROM messages WHERE " + key
+                + "=? ORDER BY message_id DESC LIMIT ?, 50";
 
         try {
-            ArrayList<Message> items = (ArrayList) jdbcTemplate.query(sql, new Object[]{receiver, offset}, new MessageMapper());
-            //Collections.reverse(items);
+            ArrayList<Message> items = (ArrayList) jdbcTemplate.query(sql, new Object[]{value, offset}, new MessageMapper());
+            Collections.reverse(items);
             return items;
         }
         catch (Exception e) {

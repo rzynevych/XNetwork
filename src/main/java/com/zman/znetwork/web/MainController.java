@@ -30,7 +30,6 @@ public class MainController {
 
     @GetMapping({"/", "/welcome"})
     public String greeting(Model model) {
-        model.addAttribute("name", "zman");
         return "greeting";
     }
 
@@ -42,9 +41,17 @@ public class MainController {
     @GetMapping("/posts")
     public String posts(Model model) {
         AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
-        ArrayList<Message> messages = messageDAO.selectItems(0, 0);
+        ArrayList<Message> messages = messageDAO.selectItems("receiver", 0, 0);
         model.addAttribute("messages", messages);
         return "posts";
+    }
+
+    @GetMapping("/userPosts")
+    public String userPosts(Model model) {
+        AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
+        ArrayList<Message> messages = messageDAO.selectItems("parent_id", appUser.getId(), 0);
+        model.addAttribute("messages", messages);
+        return "userPosts";
     }
 
     @PostMapping("/posts")
@@ -52,7 +59,7 @@ public class MainController {
 
         AppUser user = UserHandler.getAuthorizedUser().getAppUser();
         messageDAO.insert(user.getId(), message_text, user.getUsername(), 0);
-        ArrayList<Message> messages = messageDAO.selectItems(0, 0);
+        ArrayList<Message> messages = messageDAO.selectItems("receiver",0, 0);
         model.addAttribute("messages", messages);
         return "posts";
     }
