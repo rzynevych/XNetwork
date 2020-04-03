@@ -20,14 +20,10 @@
         </div>
         <div class="container" id="users-container" style="display: block; width: 50vw; margin-top: 10px">
             <div th:each="user, state : ${users}" class="user" style="display: block; padding: 2% 8%">
-                <div class="user-header" style="display: flex; margin-bottom: 10px">
-                    <span th:text="${user.username}" style="margin-left: 0; margin-right: auto; font-size: 20pt; padding: 0"></span>
-                </div>
-                <div class="user-info" style="display: flex">
-                <span th:text="${user.email}"></span>
-                <a class="add-friend-button" style="font-size: 14pt"
+                <span th:text="${user.username}" style="display: block; margin-left: 0; margin-right: auto; font-size: 20pt; padding: 0"></span>
+                <span th:text="${user.email}" style="display: block"></span>
+                <a class="add-friend-button" style="display: block; font-size: 14pt"
                    th:text="${user.friend} ? 'Remove from friends' : 'Add to friends'"></a>
-                </div>
             </div>
         </div>
     </div>

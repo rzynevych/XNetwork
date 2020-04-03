@@ -31,15 +31,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
         http.headers().frameOptions().disable(); // ВАЖНО
-        http.authorizeRequests().antMatchers("/", "welcome", "/login", "/logout", "/signup").permitAll();
-        http.authorizeRequests().antMatchers("/posts", "/account", "/userPosts")
+        http.authorizeRequests().antMatchers("/", "welcome", "/login", "/signup").permitAll();
+        http.authorizeRequests().antMatchers("/posts", "/account", "/userPosts", "/friends", "/chat", "/chats", "/logout")
                 .access("hasRole('ROLE_USER')");
         http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/");
 
         http.authorizeRequests().and().formLogin()
                 .loginProcessingUrl("/j_spring_security_check")
                 .loginPage("/login")
-                .defaultSuccessUrl("/welcome")
+                .defaultSuccessUrl("/posts")
                 .failureUrl("/login?error=true")
                 .usernameParameter("email")
                 .passwordParameter("password")

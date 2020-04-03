@@ -7,15 +7,23 @@
 <body>
 <p th:text="${message}"></p>
 <form action="/signup" method="post" style="margin-top: 20px;">
-    <div class="reg-form-container">
-        <label>Enter your name</label>
-        <input type="text" name="username" class="form-control" id="input_username" placeholder="Username">
-        <label>Enter email</label>
-        <input type="text" name="email" class="form-control" id="input_email" placeholder="Email">
-        <label>Enter password</label>
-        <input type='password' name='password' class="form-control" id="input_password" placeholder="Password">
-        <label>Repeat password</label>
-        <input type='password' name='password_repeat' class="form-control" id="repeat_password" placeholder="Password">
+    <div class="reg-form-container" style="display: block">
+        <div style="display: block">
+            <label>Enter your name</label>
+            <input type="text" name="username" class="form-control" id="input_username" placeholder="Username">
+        </div>
+        <div style="display: block">
+            <label>Enter email</label>
+            <input type="text" name="email" class="form-control" id="input_email" placeholder="Email">
+        </div>
+        <div style="display: block">
+            <label>Enter password</label>
+            <input type='password' name='password' class="form-control" id="input_password" placeholder="Password">
+        </div>
+        <div style="display: block">
+            <label>Repeat password</label>
+            <input type='password' name='password_repeat' class="form-control" id="repeat_password" placeholder="Password">
+        </div>
         <button type="submit" class="send-button">Sign Up</button>
     </div>
 </form>

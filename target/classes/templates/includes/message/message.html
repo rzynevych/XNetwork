@@ -1,7 +1,0 @@
-<div th:each="messageItem, state : ${messages}" class="message">
-    <div class="message-header" style="display: flex;">
-        <p th:text="${messageItem.username}"></p>
-        <p th:text="${messageItem.date}"></p>
-    </div>
-    <div class="message-text" th:text="${messageItem.text}"></div>
-</div>

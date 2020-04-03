@@ -14,11 +14,12 @@ public class AppUserDAO {
     private JdbcTemplate jdbcTemplate;
 
     public AppUser getById (int id) {
-        String sql = "SELECT * FROM users WHERE id=? LIMIT 1";
+        String sql = "SELECT * FROM users WHERE user_id=? LIMIT 1";
 
         try {
             return jdbcTemplate.queryForObject(sql, new Object[] { id }, new AppUserMapper());
         } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
     }
