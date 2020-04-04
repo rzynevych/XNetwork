@@ -10,6 +10,11 @@ public class Friend extends AppUser {
         super(id, email, regDate, username, token, validate, password, last_login);
     }
 
+    public Friend(int id, String email, String regDate, String username, String last_login, int usr_id) {
+        super(id, email, regDate, username, null, (byte)0, null, last_login);
+        friend = usr_id != 0;
+    }
+
     public boolean isFriend() {
         return friend;
     }

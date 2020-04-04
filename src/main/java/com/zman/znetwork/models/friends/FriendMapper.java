@@ -15,9 +15,7 @@ public class FriendMapper implements RowMapper<Friend> {
                 rs.getString("email"),
                 rs.getString("reg_date"),
                 rs.getString("username"),
-                rs.getString("token"),
-                rs.getByte("validate"),
-                rs.getString("password"),
-                rs.getString("last_login"));
+                rs.getString("last_login"),
+                rs.getInt("friend_id"));
     }
 }

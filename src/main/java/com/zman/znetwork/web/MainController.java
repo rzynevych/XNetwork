@@ -3,6 +3,7 @@ package com.zman.znetwork.web;
 import com.zman.znetwork.auth.UserHandler;
 import com.zman.znetwork.models.friends.Friend;
 import com.zman.znetwork.models.friends.FriendDAO;
+import com.zman.znetwork.models.friends.FriendInsertException;
 import com.zman.znetwork.models.messages.Message;
 import com.zman.znetwork.models.messages.MessageDAO;
 import com.zman.znetwork.models.users.AppUser;
@@ -29,8 +30,16 @@ public class MainController {
     private FriendDAO friendDAO;
 
     @GetMapping({"/", "/welcome"})
-    public String greeting(Model model) {
-        return "greeting";
+    public String welcome(Model model) {
+
+        if (UserHandler.isUserAuthorized())
+        {
+            AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
+            model.addAttribute("account", "/account?id=" + appUser.getId());
+        }
+        else
+            model.addAttribute("account", "/account?id=0");
+        return "welcome";
     }
 
     @GetMapping("/posts")
@@ -39,6 +48,7 @@ public class MainController {
         List<Message> messages = messageDAO.selectItems("receiver", 0, 0);
         model.addAttribute("messages", messages);
         model.addAttribute("action", "/posts");
+        model.addAttribute("from", "posts");
         return "posts";
     }
 
@@ -48,28 +58,64 @@ public class MainController {
         List<Message> messages = messageDAO.selectItems("parent_id", appUser.getId(), 0);
         model.addAttribute("messages", messages);
         model.addAttribute("action", "/posts");
+        model.addAttribute("from", "userPosts");
         return "userPosts";
     }
 
     @PostMapping("/posts")
-    public String send(@RequestParam String message_text, Model model) {
+    public String send(@RequestParam String message_text, @RequestParam String from, Model model) {
 
         AppUser user = UserHandler.getAuthorizedUser().getAppUser();
         messageDAO.insert(user.getId(), message_text, user.getUsername(), 0);
         List<Message> messages = messageDAO.selectItems("receiver",0, 0);
         model.addAttribute("messages", messages);
         model.addAttribute("action", "/posts");
-        return "posts";
+        return "redirect:/" + from;
     }
 
     @GetMapping("/friends")
     public String friends(Model model) {
         AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
-        List<Friend> users = friendDAO.getFriendsForUser(appUser.getId());
-        for (Friend friend : users)
-            friend.setFriend(true);
+        List<Friend> users = friendDAO.getFriendsForUser(appUser.getId(), 0);
         model.addAttribute("users", users);
+        model.addAttribute("appUser", appUser);
+        model.addAttribute("from", "friends");
         return "friends";
+    }
+
+    @PostMapping("/friends")
+    public String friendsHandler(@RequestParam int id, @RequestParam String action, @RequestParam String from, Model model) {
+        AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
+        if (action.equals("Add"))
+            try {
+                friendDAO.insertFriend(appUser.getId(), id);
+            } catch (FriendInsertException e) {
+                e.printStackTrace();
+            }
+        else if (action.equals("Remove"))
+            friendDAO.removeFriend(appUser.getId(), id);
+        List<Friend> users = friendDAO.getFriendsForUser(appUser.getId(), 0);
+        model.addAttribute("users", users);
+        model.addAttribute("appUser", appUser);
+        return "redirect:/" + from;
+    }
+
+    @GetMapping("/searchUsers")
+    public String searchUsers(Model model) {
+
+        model.addAttribute("from", "searchUsers");
+        return "searchUsers";
+    }
+
+    @PostMapping("/searchUsers")
+    public String searchUsersHandler(@RequestParam String query, Model model) {
+
+        AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
+        List<Friend> users = friendDAO.getUsersByQuery(query, appUser.getId(), 0);
+        model.addAttribute("users", users);
+        model.addAttribute("appUser", appUser);
+        model.addAttribute("from", "searchUsers");
+        return "searchUsers";
     }
 
     @GetMapping("chats")
@@ -91,11 +137,11 @@ public class MainController {
             return "chat";
         }
         List<Message> messages = messageDAO.getMessagesForChat(id1, id2, 0);
-        model.addAttribute("messages", messages);
-        model.addAttribute("title", target.getUsername());
-        model.addAttribute("action", "/chat");
-        model.addAttribute("id1", id1);
-        model.addAttribute("id2", id2);
+        model.addAttribute("messages", messages)
+        .addAttribute("title", target.getUsername())
+        .addAttribute("action", "/chat")
+        .addAttribute("id1", id1)
+        .addAttribute("id2", id2);
         return "chat";
     }
 
@@ -110,11 +156,29 @@ public class MainController {
         }
         messageDAO.insert(id1, message_text, appUser.getUsername(), id2);
         List<Message> messages = messageDAO.getMessagesForChat(id1, id2, 0);
-        model.addAttribute("messages", messages);
-        model.addAttribute("title", target.getUsername());
-        model.addAttribute("action", "/chat");
-        model.addAttribute("id1", id1);
-        model.addAttribute("id2", id2);
+        model
+                .addAttribute("messages", messages)
+                .addAttribute("title", target.getUsername())
+                .addAttribute("action", "/chat")
+                .addAttribute("id1", id1)
+                .addAttribute("id2", id2);
         return "chat";
+    }
+
+    @GetMapping("/account")
+    public String account(@RequestParam int id, Model model) {
+
+        AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
+        AppUser user = appUserDAO.getById(id);
+        if (id == 0)
+            user = appUser;
+        if (user == null) {
+            model.addAttribute("message", "User not found");
+            return "user";
+        }
+        model.addAttribute("user", user);
+        if (user.getId() == appUser.getId())
+            model.addAttribute("authority", true);
+        return "user";
     }
 }

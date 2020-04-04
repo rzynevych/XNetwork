@@ -18,6 +18,10 @@
                 <a class="nav-button" href="/searchUsers">Search Users</a>
             </div>
         </div>
+        <form action="/searchUsers" method="post">
+            <input type="text" name="query" id="input_query" placeholder="Enter query">
+            <button type="submit" class="send-button">Search</button>
+        </form>
         <th:block th:include="includes/users.html"> </th:block>
     </div>
 </div>

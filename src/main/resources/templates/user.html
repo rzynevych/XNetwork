@@ -3,22 +3,17 @@
 <head>
     <title>ZNetwork</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="header-style.css">
 </head>
 
-<link rel="stylesheet" href="header-style.css">
-
 <body>
-
 <div class="container" id="page-holder" style="display: flex; width: 100vw">
     <th:block th:include="includes/side-bar"> </th:block>
     <div class="container" id="main-block" style="display: block; width: 50vw; margin-left: 6vw">
-        <div id="header">
-            <div id="nav">
-                <a class="nav-button" href="/friends">Friends</a>
-                <a class="nav-button" href="/searchUsers">Search Users</a>
-            </div>
-        </div>
-        <th:block th:include="includes/users.html"> </th:block>
+        <th:block th:include="includes/header.html"> </th:block>
+        <span th:if="${message}" th:text="${message}"></span>
+        <h1 th:if="${user}" th:text="${user.username}"></h1>
+        <a th:if="${authority}" href="/logout" style="font-size: 14pt">Logout</a>
     </div>
 </div>
 </body>

@@ -9,6 +9,7 @@
     <form th:action="${action}" method="post" style="margin-top: 20px;">
         <input type="hidden" name="id1" th:value="${id1}">
         <input type="hidden" name="id2" th:value="${id2}">
+        <input type="hidden" name="from" th:value="${from}">
         <input type="text" name="message_text" class="form-control" id="input_message" placeholder="Enter your message">
         <button type="submit" class="send-button">Send</button>
     </form>

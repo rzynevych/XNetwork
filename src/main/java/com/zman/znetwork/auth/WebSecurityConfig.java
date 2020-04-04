@@ -32,7 +32,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
         http.headers().frameOptions().disable(); // ВАЖНО
         http.authorizeRequests().antMatchers("/", "welcome", "/login", "/signup").permitAll();
-        http.authorizeRequests().antMatchers("/posts", "/account", "/userPosts", "/friends", "/chat", "/chats", "/logout")
+        http.authorizeRequests()
+                .antMatchers("/posts", "/account", "/userPosts", "/friends", "/chat", "/chats", "/searchUsers", "/logout")
                 .access("hasRole('ROLE_USER')");
         http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/");
 

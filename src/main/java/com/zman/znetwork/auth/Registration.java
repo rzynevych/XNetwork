@@ -11,12 +11,12 @@ import java.util.Map;
 @Service
 public class Registration {
 
-    @Autowired
     private AppUserDAO appUserDAO;
     private BCryptPasswordEncoder encoder;
 
-    public Registration() {
+    public Registration(@Autowired AppUserDAO appUserDAO) {
 
+        this.appUserDAO = appUserDAO;
         encoder = new BCryptPasswordEncoder();
     }
 
