@@ -28,7 +28,22 @@ public class MessageDAO {
 
         try {
             List<Message> items = jdbcTemplate.query(sql, new Object[]{value, offset}, new MessageMapper());
-            //Collections.reverse(items);
+            return items;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public List<Message> selectPosts(int id, int offset) {
+
+        String sql = "SELECT message_id,parent_id,receiver,username,text,DATE_FORMAT(`date`, '%H:%i') " +
+                "FROM messages INNER JOIN friends ON friend_id=parent_id WHERE usr_id=? " +
+                "AND receiver=0 ORDER BY message_id DESC LIMIT ?, 50";
+
+        try {
+            List<Message> items = jdbcTemplate.query(sql, new Object[]{id, offset}, new MessageMapper());
             return items;
         }
         catch (Exception e) {
@@ -39,9 +54,10 @@ public class MessageDAO {
 
     public List<AppUser> getChatUsers(int user_id, int offset) {
 
-        String sql = "SELECT user_id, email, reg_date, users.username, token, validate, password, last_login FROM messages " +
-                "INNER JOIN users ON (user_id=receiver OR user_id=parent_id) " +
-                "WHERE (parent_id=? OR receiver=?) AND NOT receiver=0 GROUP BY user_id ORDER BY MAX(message_id) DESC LIMIT ?, 50";
+        String sql = "SELECT user_id, email, reg_date, users.username, token, validate, password, last_login " +
+                "FROM messages INNER JOIN users ON (user_id=receiver OR user_id=parent_id) " +
+                "WHERE (parent_id=? OR receiver=?) AND NOT receiver=0 " +
+                "GROUP BY user_id ORDER BY MAX(message_id) DESC LIMIT ?, 50";
         List<AppUser> chatUsers = jdbcTemplate.query(sql, new Object[]{user_id, user_id, offset}, new AppUserMapper());
         return chatUsers;
     }

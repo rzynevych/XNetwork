@@ -45,10 +45,8 @@ public class MainController {
     @GetMapping("/posts")
     public String posts(Model model) {
         AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
-        List<Message> messages = messageDAO.selectItems("receiver", 0, 0);
+        List<Message> messages = messageDAO.selectPosts(appUser.getId(), 0);
         model.addAttribute("messages", messages);
-        model.addAttribute("action", "/posts");
-        model.addAttribute("from", "posts");
         return "posts";
     }
 
@@ -57,20 +55,20 @@ public class MainController {
         AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
         List<Message> messages = messageDAO.selectItems("parent_id", appUser.getId(), 0);
         model.addAttribute("messages", messages);
-        model.addAttribute("action", "/posts");
+        model.addAttribute("action", "/userPosts");
         model.addAttribute("from", "userPosts");
         return "userPosts";
     }
 
-    @PostMapping("/posts")
-    public String send(@RequestParam String message_text, @RequestParam String from, Model model) {
+    @PostMapping("/userPosts")
+    public String send(@RequestParam String message_text, Model model) {
 
         AppUser user = UserHandler.getAuthorizedUser().getAppUser();
         messageDAO.insert(user.getId(), message_text, user.getUsername(), 0);
         List<Message> messages = messageDAO.selectItems("receiver",0, 0);
         model.addAttribute("messages", messages);
         model.addAttribute("action", "/posts");
-        return "redirect:/" + from;
+        return "userPosts";
     }
 
     @GetMapping("/friends")
@@ -103,6 +101,10 @@ public class MainController {
     @GetMapping("/searchUsers")
     public String searchUsers(Model model) {
 
+        AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
+        List<Friend> users = friendDAO.getUsersByQuery("", appUser.getId(), 0);
+        model.addAttribute("users", users);
+        model.addAttribute("appUser", appUser);
         model.addAttribute("from", "searchUsers");
         return "searchUsers";
     }
@@ -128,40 +130,28 @@ public class MainController {
     }
 
     @GetMapping("chat")
-    public String chat(@RequestParam int id1, @RequestParam int id2, Model model) {
+    public String chat(@RequestParam int id, Model model) {
         AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
-        AppUser target = appUserDAO.getById(id2);
-        if (id1 != appUser.getId())
-        {
-            model.addAttribute("error_message", "You are not authorized to access this page");
-            return "chat";
-        }
-        List<Message> messages = messageDAO.getMessagesForChat(id1, id2, 0);
+        AppUser user = appUserDAO.getById(id);
+        List<Message> messages = messageDAO.getMessagesForChat(appUser.getId(), id, 0);
         model.addAttribute("messages", messages)
-        .addAttribute("title", target.getUsername())
+        .addAttribute("title", user.getUsername())
         .addAttribute("action", "/chat")
-        .addAttribute("id1", id1)
-        .addAttribute("id2", id2);
+        .addAttribute("id", id);
         return "chat";
     }
 
     @PostMapping("chat")
-    public String sendToChat(@RequestParam int id1, @RequestParam int id2, @RequestParam String message_text, Model model) {
+    public String sendToChat(@RequestParam int id, @RequestParam String message_text, Model model) {
         AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
-        AppUser target = appUserDAO.getById(id2);
-        if (id1 != appUser.getId())
-        {
-            model.addAttribute("error_message", "You are not authorized for this request");
-            return "chat";
-        }
-        messageDAO.insert(id1, message_text, appUser.getUsername(), id2);
-        List<Message> messages = messageDAO.getMessagesForChat(id1, id2, 0);
+        AppUser target = appUserDAO.getById(id);
+        messageDAO.insert(appUser.getId(), message_text, appUser.getUsername(), id);
+        List<Message> messages = messageDAO.getMessagesForChat(appUser.getId(), id, 0);
         model
                 .addAttribute("messages", messages)
                 .addAttribute("title", target.getUsername())
                 .addAttribute("action", "/chat")
-                .addAttribute("id1", id1)
-                .addAttribute("id2", id2);
+                .addAttribute("id", id);
         return "chat";
     }
 
@@ -169,9 +159,11 @@ public class MainController {
     public String account(@RequestParam int id, Model model) {
 
         AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
-        AppUser user = appUserDAO.getById(id);
+        AppUser user;
         if (id == 0)
             user = appUser;
+        else
+            user = appUserDAO.getById(id);
         if (user == null) {
             model.addAttribute("message", "User not found");
             return "user";

@@ -28,11 +28,12 @@ public class FriendDAO {
     public List<Friend> getUsersByQuery(String query, int user_id, int offset) {
 
         String sql = "select user_id, email, reg_date, username, last_login, friend_id from users left join " +
-                "(select * from friends where usr_id=?) t1 on t1.friend_id=users.user_id WHERE NOT user_id=? AND username LIKE ? LIMIT ?, 50";
+                "(select * from friends where usr_id=?) t1 on t1.friend_id=users.user_id WHERE NOT user_id=? " +
+                "AND (username LIKE ? OR email LIKE ?) LIMIT ?, 50";
         try {
             if (query.equals(""))
                 query = "%";
-            return jdbcTemplate.query(sql, new Object[]{user_id, user_id, query, offset}, new FriendMapper());
+            return jdbcTemplate.query(sql, new Object[]{user_id, user_id, query, query, offset}, new FriendMapper());
         } catch (Exception e) {
             e.printStackTrace();
             return null;
