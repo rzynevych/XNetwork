@@ -5,28 +5,24 @@
     <title>Signup</title>
 </head>
 <link rel="stylesheet" href="header-style.css">
+<style>
+    h2 {
+        text-align: center;
+    }
+</style>
 <body>
 <p th:text="${message}"></p>
-<form action="/signup" method="post" style="margin-top: 20px;">
-    <div class="reg-form-container" style="display: block">
-        <div style="display: block">
-            <label>Enter your name</label>
-            <input type="text" name="username" class="form-control" id="input_username" placeholder="Username">
-        </div>
-        <div style="display: block">
-            <label>Enter email</label>
-            <input type="text" name="email" class="form-control" id="input_email" placeholder="Email">
-        </div>
-        <div style="display: block">
-            <label>Enter password</label>
-            <input type='password' name='password' class="form-control" id="input_password" placeholder="Password">
-        </div>
-        <div style="display: block">
-            <label>Repeat password</label>
-            <input type='password' name='password_repeat' class="form-control" id="repeat_password" placeholder="Password">
-        </div>
-        <button type="submit" class="send-button">Sign Up</button>
-    </div>
+<form action="/signup" method="post" class="auth-form">
+    <h2>ZNetwork registration</h2>
+    <label class="form-label">Enter your name</label>
+    <input type="text" name="username" class="form-control" id="input_username" placeholder="Username">
+    <label class="form-label">Enter email</label>
+    <input type="text" name="email" class="form-control" id="input_email" placeholder="Email">
+    <label class="form-label">Enter password</label>
+    <input type='password' name='password' class="form-control" id="input_password" placeholder="Password">
+    <label class="form-label">Repeat password</label>
+    <input type='password' name='password_repeat' class="form-control" id="repeat_password" placeholder="Password">
+    <button type="submit" id="auth-send-button">Sign Up</button>
 </form>
 </body>
 </html>

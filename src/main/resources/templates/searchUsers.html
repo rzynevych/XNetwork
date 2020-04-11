@@ -7,23 +7,31 @@
 
 <link rel="stylesheet" href="header-style.css">
 
+<style>
+    #nav {
+        justify-content: space-around;
+    }
+</style>
+
 <body>
 
-<div class="container" id="page-holder" style="display: flex; width: 100vw">
+<div class="container" id="page-holder">
     <th:block th:include="includes/side-bar"> </th:block>
-    <div class="container" id="main-block" style="display: block; width: 50vw; margin-left: 6vw">
+    <div class="container" id="main-block">
         <div id="header">
             <div id="nav">
                 <a class="nav-button" href="/friends">Friends</a>
                 <a class="nav-button" href="/searchUsers">Search Users</a>
             </div>
         </div>
-        <form action="/searchUsers" method="post" style="margin: 20px">
-            <input type="text" name="query" id="input_query" placeholder="Enter username or email">
-            <button type="submit" class="send-button">Search</button>
+        <form action="/searchUsers" method="post" class="send-message-form-1">
+            <input type="text" class="input-message-1" name="query" id="input_query" placeholder="Enter username or email">
+            <button type="submit" class="send-button-1">Search</button>
         </form>
         <th:block th:include="includes/users.html"> </th:block>
     </div>
 </div>
+<th:block th:include="includes/footer.html"></th:block>
 </body>
+<script src="script.js"></script>
 </html>

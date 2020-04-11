@@ -1,5 +1,12 @@
-#header {
+body {
+    padding: 0;
+    margin: 0;
+}
+
+#page-holder {
     display: flex;
+    width: 100vw;
+    height: 90vh;
 }
 
 #logo {
@@ -10,10 +17,11 @@
 }
 
 #nav {
+    height: 3em;
+    margin-top: 0.4em;
     display: flex;
     width: 50vw;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: space-between;
 }
 
 .nav-button {
@@ -26,9 +34,36 @@
     border-top: 1px solid;
     border-color: white;
 }
+#main-block {
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+    width: 50vw;
+    margin-left: 10vw;
+}
+
+.auth-form {
+    position: absolute;
+    top: 20vh;
+    left: 35vw;
+}
+
+#auth-send-button {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+}
 
 .form-control {
     display: block;
+    font-size: 12pt;
+    height: 1.4em;
+    width: 18em;
+    margin: 0.5em 0;
+}
+
+.form-label {
+    font-size: 14pt;
 }
 
 .nav-button:hover {
@@ -36,4 +71,58 @@
     border-bottom: 1px solid;
     border-top: 1px solid;
     border-color: black;
+}
+
+.items-container {
+    overflow-y: scroll;
+    flex-grow: 1;
+    display: block;
+    height: 90%;
+    width: 50vw;
+    border-top: 1px solid #00000080;
+    padding-top: 0.5em;
+    box-sizing: border-box;
+}
+
+.divider {
+    display: block;
+    height: 0;
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.5);
+    margin: 2% 0;
+}
+#chats-container {
+    overflow-y: scroll;
+    display: block;
+    width: 50vw;
+    height: 70vh;
+    margin-top: 10px;
+}
+
+.send-message-form-1 {
+    display: flex;
+    height: 2.5em;
+    border: 1px solid grey;
+}
+
+.input-message-1 {
+    display: block;
+    box-sizing: border-box;
+    height: inherit;
+    width: 80%;
+}
+
+.send-button-1 {
+    width: 20%;
+}
+
+.message {
+    display: block;
+    margin-right: 5px;
+}
+
+.footer {
+    height: 10vh;
+    width: 100%;
+    background: #00000080;
 }

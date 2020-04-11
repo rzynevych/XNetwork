@@ -1,9 +1,7 @@
-<div id="header">
-    <div id="nav">
-        <a class="nav-button" href="/posts">Posts</a>
-        <a class="nav-button" href="/userPosts">MyPosts</a>
-        <a class="nav-button" href="/friends">Friends</a>
-        <a class="nav-button" href="/chats">Chats</a>
-        <a class="nav-button" th:href="${account} ? ${account} : '/account?id=0'">Account</a>
-    </div>
+<div id="nav" xmlns:th="http://www.w3.org/1999/xhtml">
+    <a class="nav-button" id="nav-button-first" href="/posts">Posts</a>
+    <a class="nav-button" href="/userPosts">MyPosts</a>
+    <a class="nav-button" href="/friends">Friends</a>
+    <a class="nav-button" href="/chats">Chats</a>
+    <a class="nav-button" id="nav-button-last" th:href="${account} ? ${account} : '/account?id=0'">Account</a>
 </div>
