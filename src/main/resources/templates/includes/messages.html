@@ -1,10 +1,10 @@
-<div class="items-container" xmlns:th="http://www.w3.org/1999/xhtml">
+<div class="items-container" id="messages-container" xmlns:th="http://www.w3.org/1999/xhtml">
     <div th:each="messageItem, state : ${messages}" class="message">
-        <div class="items-header" style="display: flex; margin-bottom: 10px">
-            <span th:text="${messageItem.username}" style="margin-left: 0; margin-right: auto; font-size: 20pt; padding: 0"></span>
-            <span th:text="${messageItem.date}" style="padding-top: 10px; opacity: 0.5"></span>
+        <div class="message-header">
+            <span th:text="${messageItem.username}" class="message-username"></span>
+            <span th:text="${messageItem.date}" class="message-date"></span>
         </div>
-        <div class="message-text" style="font-size: 14pt" th:text="${messageItem.text}"></div>
+        <div class="message-text" th:text="${messageItem.text}"></div>
         <div class="divider"></div>
     </div>
 </div>

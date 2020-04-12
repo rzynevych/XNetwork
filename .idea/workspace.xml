@@ -2,37 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e2ecfbd-a4c3-4367-825d-3b38009ac55b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/includes/footer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/friends.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/posts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/friends/FriendDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/friends/FriendDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/header-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/header-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/chat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/chats.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/chats.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/script.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/friends.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/friends.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/includes/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/includes/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/includes/messages.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/includes/messages.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/includes/send-message.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/includes/send-message.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/includes/side-bar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/includes/side-bar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/includes/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/includes/users.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/posts.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/searchUsers.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/searchUsers.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/signup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/userPosts.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/userPosts.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/welcome.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/friends/FriendDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/friends/FriendDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zman/znetwork/web/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zman/znetwork/web/MainController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/static/header-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/header-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/chat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/chats.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/chats.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/script.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/friends.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/friends.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/includes/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/includes/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/includes/messages.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/includes/messages.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/includes/send-message.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/includes/send-message.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/includes/side-bar.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/includes/side-bar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/includes/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/includes/users.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/posts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/searchUsers.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/searchUsers.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/user.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/userPosts.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/userPosts.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/welcome.html" afterDir="false" />
     </list>
@@ -60,8 +52,8 @@
       <list>
         <option value="CSS File" />
         <option value="Class" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -167,7 +159,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Spring Boot" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
             </expand>
             <select />
@@ -203,6 +195,7 @@
       <workItem from="1586206681423" duration="794000" />
       <workItem from="1586519460771" duration="16724000" />
       <workItem from="1586595154281" duration="22085000" />
+      <workItem from="1586689323238" duration="12519000" />
     </task>
     <servers />
   </component>
@@ -260,45 +253,45 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="478" y="143" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1585752488823" />
-    <state width="905" height="224" key="GridCell.Tab.0.bottom" timestamp="1586642878074">
+    <state width="905" height="144" key="GridCell.Tab.0.bottom" timestamp="1586703182409">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="224" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586642878074" />
+    <state width="905" height="144" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586703182409" />
     <state width="1885" height="271" key="GridCell.Tab.0.bottom/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899814" />
-    <state width="905" height="224" key="GridCell.Tab.0.center" timestamp="1586642878074">
+    <state width="905" height="144" key="GridCell.Tab.0.center" timestamp="1586703182409">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="224" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586642878074" />
+    <state width="905" height="144" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586703182409" />
     <state width="1885" height="271" key="GridCell.Tab.0.center/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899813" />
-    <state width="905" height="224" key="GridCell.Tab.0.left" timestamp="1586642878074">
+    <state width="905" height="144" key="GridCell.Tab.0.left" timestamp="1586703182409">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="224" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586642878074" />
+    <state width="905" height="144" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586703182409" />
     <state width="1885" height="271" key="GridCell.Tab.0.left/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899813" />
-    <state width="905" height="224" key="GridCell.Tab.0.right" timestamp="1586642878074">
+    <state width="905" height="144" key="GridCell.Tab.0.right" timestamp="1586703182409">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="224" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586642878074" />
+    <state width="905" height="144" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586703182409" />
     <state width="1885" height="271" key="GridCell.Tab.0.right/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899814" />
-    <state width="905" height="224" key="GridCell.Tab.1.bottom" timestamp="1586642878074">
+    <state width="905" height="144" key="GridCell.Tab.1.bottom" timestamp="1586703182409">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="224" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586642878074" />
+    <state width="905" height="144" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586703182409" />
     <state width="1885" height="271" key="GridCell.Tab.1.bottom/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899814" />
-    <state width="905" height="224" key="GridCell.Tab.1.center" timestamp="1586642878074">
+    <state width="905" height="144" key="GridCell.Tab.1.center" timestamp="1586703182409">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="224" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1586642878074" />
+    <state width="905" height="144" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1586703182409" />
     <state width="1885" height="271" key="GridCell.Tab.1.center/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899814" />
-    <state width="905" height="224" key="GridCell.Tab.1.left" timestamp="1586642878074">
+    <state width="905" height="144" key="GridCell.Tab.1.left" timestamp="1586703182409">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="224" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1586642878074" />
+    <state width="905" height="144" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1586703182409" />
     <state width="1885" height="271" key="GridCell.Tab.1.left/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899814" />
-    <state width="905" height="224" key="GridCell.Tab.1.right" timestamp="1586642878074">
+    <state width="905" height="144" key="GridCell.Tab.1.right" timestamp="1586703182409">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="224" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1586642878074" />
+    <state width="905" height="144" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1586703182409" />
     <state width="1885" height="271" key="GridCell.Tab.1.right/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899814" />
     <state x="1304" y="491" key="Registry" timestamp="1582728689728">
       <screen x="0" y="23" width="2560" height="1337" />

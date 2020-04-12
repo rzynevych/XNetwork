@@ -15,7 +15,7 @@ public class FriendDAO {
     public List<Friend> getFriendsForUser(int userID, int offset) {
 
         String sql = "select user_id, email, reg_date, username, last_login, friend_id from users inner join " +
-                "(select * from friends where usr_id=?) t1 on t1.friend_id=users.user_id  LIMIT ?, 50";
+                "(select * from friends where usr_id=?) t1 on t1.friend_id=users.user_id ORDER BY t1.note_id DESC LIMIT ?, 50";
         try {
 
            return jdbcTemplate.query(sql, new Object[]{userID, offset}, new FriendMapper());

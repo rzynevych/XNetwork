@@ -9,6 +9,8 @@ import com.zman.znetwork.models.messages.MessageDAO;
 import com.zman.znetwork.models.users.AppUser;
 import com.zman.znetwork.models.users.AppUserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -61,14 +63,17 @@ public class MainController {
     }
 
     @PostMapping("/userPosts")
-    public String send(@RequestParam String message_text, Model model) {
+    public ResponseEntity<String> send(@RequestParam String message_text, Model model) {
 
         AppUser user = UserHandler.getAuthorizedUser().getAppUser();
         messageDAO.insert(user.getId(), message_text, user.getUsername(), 0);
-        List<Message> messages = messageDAO.selectItems("receiver",0, 0);
-        model.addAttribute("messages", messages);
-        model.addAttribute("action", "/posts");
-        return "userPosts";
+
+        String json = "{\"username\" : \"" + user.getUsername() + "\"," +
+                "\"date\" : \"" + "17:05"  + "\"," +
+                "\"text\" : \"" + message_text   + "\"," +
+                "\"result\" : \"ok\"}";
+        ResponseEntity entity = ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(json);
+        return entity;
     }
 
     @GetMapping("/friends")
@@ -82,7 +87,7 @@ public class MainController {
     }
 
     @PostMapping("/friends")
-    public String friendsHandler(@RequestParam int id, @RequestParam String action, @RequestParam String from, Model model) {
+    public ResponseEntity<String> friendsHandler(@RequestParam int id, @RequestParam String action, @RequestParam String from, Model model) {
         AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
         if (action.equals("Add"))
             try {
@@ -92,10 +97,9 @@ public class MainController {
             }
         else if (action.equals("Remove"))
             friendDAO.removeFriend(appUser.getId(), id);
-        List<Friend> users = friendDAO.getFriendsForUser(appUser.getId(), 0);
-        model.addAttribute("users", users);
-        model.addAttribute("appUser", appUser);
-        return "redirect:/" + from;
+        String json = "{\"result\" : \"success\", \"action\" : \"" + action +"\"}";
+        ResponseEntity<String> entity = ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(json);
+        return entity;
     }
 
     @GetMapping("/searchUsers")

@@ -1,5 +1,5 @@
-<form th:action="${action}" method="post" class="send-message-form-1" xmlns:th="http://www.w3.org/1999/xhtml">
+<form th:action="${action}" method="post" id="send-message-form-1" class="send-message-form-1" xmlns:th="http://www.w3.org/1999/xhtml">
     <input type="hidden" name="id" th:value="${id}">
     <input type="text" name="message_text" class="input-message-1" placeholder="Enter your message">
-    <button type="submit" class="send-button-1">Send</button>
+    <button type="submit" id="send-button-1" class="send-button-1">Send</button>
 </form>

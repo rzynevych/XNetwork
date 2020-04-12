@@ -121,6 +121,27 @@ body {
     margin-right: 5px;
 }
 
+.message-header {
+    display: flex;
+    margin-bottom: 10px
+}
+
+.message-date {
+    padding-top: 10px;
+    opacity: 0.5
+}
+
+.message-username {
+    margin-left: 0;
+    margin-right: auto;
+    font-size: 20pt;
+    padding: 0;
+}
+
+.message-text {
+    font-size: 14pt;
+}
+
 .footer {
     height: 10vh;
     width: 100%;
