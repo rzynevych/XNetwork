@@ -1,5 +1,5 @@
 <div class="items-container" id="messages-container" xmlns:th="http://www.w3.org/1999/xhtml">
-    <div th:each="messageItem, state : ${messages}" class="message">
+    <div th:each="messageItem, state : ${messages}" class="message" th:id="${'id-' + messageItem.id}">
         <div class="message-header">
             <span th:text="${messageItem.username}" class="message-username"></span>
             <span th:text="${messageItem.date}" class="message-date"></span>

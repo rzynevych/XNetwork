@@ -2,29 +2,49 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e2ecfbd-a4c3-4367-825d-3b38009ac55b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/friends.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/posts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/MessagesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/CSS/auth.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/CSS/messages.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/JS/chat.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/JS/message.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/friends/FriendDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/friends/FriendDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/messages/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/messages/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/messages/MessageDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/messages/MessageDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/AuthController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/header-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/header-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/friends.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/JS/friends.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/header-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/CSS/common-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/JS/posts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/chat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/chats.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/chats.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/friends.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/friends.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/includes/messages.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/includes/messages.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/includes/send-message.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/includes/send-message.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/posts.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/searchUsers.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/searchUsers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/userPosts.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/userPosts.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/welcome.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/friends/FriendDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/friends/FriendDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/messages/MessageDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/messages/MessageDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zman/znetwork/web/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zman/znetwork/web/AuthController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/zman/znetwork/web/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zman/znetwork/web/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/header-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/header-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/friends.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/header-style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/posts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/chat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/chats.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/chats.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/friends.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/friends.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/includes/messages.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/includes/messages.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/includes/send-message.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/includes/send-message.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/posts.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/searchUsers.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/searchUsers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/user.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/userPosts.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/userPosts.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/welcome.html" afterDir="false" />
     </list>
@@ -47,13 +67,16 @@
     <expand />
     <select />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="ZNetwork" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -88,21 +111,21 @@
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="web.server" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/templates" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\coding\java\ZNetwork\src\main\resources\static\CSS" />
+      <recent name="D:\coding\java\ZNetwork\src\main\resources\static\JS" />
       <recent name="D:\coding\java\ZNetwork\src\main\resources\templates\includes" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/includes" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates" />
-      <recent name="$PROJECT_DIR$/src/main/resources/static" />
-      <recent name="$PROJECT_DIR$/src/main/resources/static/includes" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/templates" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -159,7 +182,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Spring Boot" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
             </expand>
             <select />
@@ -195,7 +218,8 @@
       <workItem from="1586206681423" duration="794000" />
       <workItem from="1586519460771" duration="16724000" />
       <workItem from="1586595154281" duration="22085000" />
-      <workItem from="1586689323238" duration="12519000" />
+      <workItem from="1586689323238" duration="20238000" />
+      <workItem from="1586769123411" duration="32251000" />
     </task>
     <servers />
   </component>
@@ -228,10 +252,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="22" key="#SQL_Dialects/0.0.1366.728@0.0.1366.728" timestamp="1585908266512" />
-    <state x="275" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585908692117">
+    <state x="274" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586711515226">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1585908692117" />
+    <state x="274" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1586711515226" />
     <state x="493" y="96" key="#com.intellij.ide.util.MemberChooser" timestamp="1585999726204">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -249,62 +273,82 @@
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
     <state x="937" y="219" key="CommitChangelistDialog2/0.23.2560.1337@0.23.2560.1337" timestamp="1582982722589" />
-    <state x="478" y="143" key="FileChooserDialogImpl" timestamp="1585752488823">
+    <state x="478" y="143" key="FileChooserDialogImpl" timestamp="1586711743538">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="478" y="143" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1585752488823" />
-    <state width="905" height="144" key="GridCell.Tab.0.bottom" timestamp="1586703182409">
+    <state x="478" y="143" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1586711743537" />
+    <state width="905" height="192" key="GridCell.Tab.0.bottom" timestamp="1586818679628">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="144" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586703182409" />
+    <state width="905" height="192" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586818679628" />
     <state width="1885" height="271" key="GridCell.Tab.0.bottom/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899814" />
-    <state width="905" height="144" key="GridCell.Tab.0.center" timestamp="1586703182409">
+    <state width="905" height="192" key="GridCell.Tab.0.center" timestamp="1586818679628">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="144" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586703182409" />
+    <state width="905" height="192" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586818679628" />
     <state width="1885" height="271" key="GridCell.Tab.0.center/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899813" />
-    <state width="905" height="144" key="GridCell.Tab.0.left" timestamp="1586703182409">
+    <state width="905" height="192" key="GridCell.Tab.0.left" timestamp="1586818679628">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="144" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586703182409" />
+    <state width="905" height="192" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586818679628" />
     <state width="1885" height="271" key="GridCell.Tab.0.left/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899813" />
-    <state width="905" height="144" key="GridCell.Tab.0.right" timestamp="1586703182409">
+    <state width="905" height="192" key="GridCell.Tab.0.right" timestamp="1586818679628">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="144" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586703182409" />
+    <state width="905" height="192" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586818679628" />
     <state width="1885" height="271" key="GridCell.Tab.0.right/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899814" />
-    <state width="905" height="144" key="GridCell.Tab.1.bottom" timestamp="1586703182409">
+    <state width="905" height="192" key="GridCell.Tab.1.bottom" timestamp="1586818679628">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="144" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586703182409" />
+    <state width="905" height="192" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586818679628" />
     <state width="1885" height="271" key="GridCell.Tab.1.bottom/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899814" />
-    <state width="905" height="144" key="GridCell.Tab.1.center" timestamp="1586703182409">
+    <state width="905" height="192" key="GridCell.Tab.1.center" timestamp="1586818679628">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="144" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1586703182409" />
+    <state width="905" height="192" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1586818679628" />
     <state width="1885" height="271" key="GridCell.Tab.1.center/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899814" />
-    <state width="905" height="144" key="GridCell.Tab.1.left" timestamp="1586703182409">
+    <state width="905" height="192" key="GridCell.Tab.1.left" timestamp="1586818679628">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="144" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1586703182409" />
+    <state width="905" height="192" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1586818679628" />
     <state width="1885" height="271" key="GridCell.Tab.1.left/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899814" />
-    <state width="905" height="144" key="GridCell.Tab.1.right" timestamp="1586703182409">
+    <state width="905" height="192" key="GridCell.Tab.1.right" timestamp="1586818679628">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="144" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1586703182409" />
+    <state width="905" height="192" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1586818679628" />
     <state width="1885" height="271" key="GridCell.Tab.1.right/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899814" />
+    <state width="905" height="192" key="GridCell.Tab.2.bottom" timestamp="1586813126352">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="905" height="192" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586813126352" />
+    <state width="905" height="192" key="GridCell.Tab.2.center" timestamp="1586813126351">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="905" height="192" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1586813126351" />
+    <state width="905" height="192" key="GridCell.Tab.2.left" timestamp="1586813126351">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="905" height="192" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1586813126351" />
+    <state width="905" height="192" key="GridCell.Tab.2.right" timestamp="1586813126352">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="905" height="192" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1586813126352" />
+    <state x="213" y="19" key="Maven.ArtifactSearchDialog" timestamp="1586711372667">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="213" y="19" key="Maven.ArtifactSearchDialog/0.0.1366.728@0.0.1366.728" timestamp="1586711372667" />
     <state x="1304" y="491" key="Registry" timestamp="1582728689728">
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
     <state x="1304" y="491" key="Registry/0.23.2560.1337@0.23.2560.1337" timestamp="1582728689728" />
-    <state x="104" y="13" key="SettingsEditor" timestamp="1584543146235">
+    <state x="104" y="0" key="SettingsEditor" timestamp="1586711748190">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="104" y="13" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1584543146235" />
-    <state x="472" y="331" key="com.intellij.ide.util.TipDialog" timestamp="1586595165660">
+    <state x="104" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1586711748190" />
+    <state x="472" y="331" key="com.intellij.ide.util.TipDialog" timestamp="1586769213341">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="472" y="331" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1586595165660" />
+    <state x="472" y="331" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1586769213341" />
     <state x="885" y="630" key="com.intellij.ide.util.TipDialog/0.23.2560.1337@0.23.2560.1337" timestamp="1582982624991" />
     <state x="413" y="130" key="extract.method.dialog" timestamp="1585928345246">
       <screen x="0" y="0" width="1366" height="728" />

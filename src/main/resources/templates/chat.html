@@ -5,7 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 
-<link rel="stylesheet" href="header-style.css">
+<link rel="stylesheet" href="CSS/common-style.css">
+<link rel="stylesheet" href="CSS/messages.css">
 
 <body>
 
@@ -14,11 +15,13 @@
     <div class="container" id="main-block">
         <th:block th:include="includes/header.html"> </th:block>
         <span th:if="${error_message}" th:text="${error_message}" style="display: block; margin-top: 20px"></span>
-        <h1 th:text="${title}" style="margin: 0"></h1>
+        <h1 th:text="${title}" style="margin: 0.2em"></h1>
         <th:block th:include="includes/messages.html"> </th:block>
         <th:block th:include="includes/send-message.html"> </th:block>
     </div>
 </div>
 <th:block th:include="includes/footer.html"></th:block>
 </body>
+<script src="JS/message.js"></script>
+<script src="JS/chat.js"></script>
 </html>

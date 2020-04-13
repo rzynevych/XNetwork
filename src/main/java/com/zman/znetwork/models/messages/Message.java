@@ -22,6 +22,13 @@ public class Message {
         this.date = date;
     }
 
+    public Message(long id, String username, String text, String date) {
+        this.id = id;
+        this.username = username;
+        this.text = text;
+        this.date = date;
+    }
+
     public long getId() {
         return id;
     }

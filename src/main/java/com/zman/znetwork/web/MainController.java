@@ -8,6 +8,7 @@ import com.zman.znetwork.models.messages.Message;
 import com.zman.znetwork.models.messages.MessageDAO;
 import com.zman.znetwork.models.users.AppUser;
 import com.zman.znetwork.models.users.AppUserDAO;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -55,7 +59,8 @@ public class MainController {
     @GetMapping("/userPosts")
     public String userPosts(Model model) {
         AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
-        List<Message> messages = messageDAO.selectItems("parent_id", appUser.getId(), 0);
+        List<Message> messages = messageDAO.getMessagesForChat(appUser.getId(), 0, 0);
+        Collections.reverse(messages);
         model.addAttribute("messages", messages);
         model.addAttribute("action", "/userPosts");
         model.addAttribute("from", "userPosts");
@@ -63,17 +68,18 @@ public class MainController {
     }
 
     @PostMapping("/userPosts")
-    public ResponseEntity<String> send(@RequestParam String message_text, Model model) {
+    public ResponseEntity<String> send(@RequestParam String message_text) {
 
         AppUser user = UserHandler.getAuthorizedUser().getAppUser();
         messageDAO.insert(user.getId(), message_text, user.getUsername(), 0);
-
-        String json = "{\"username\" : \"" + user.getUsername() + "\"," +
-                "\"date\" : \"" + "17:05"  + "\"," +
-                "\"text\" : \"" + message_text   + "\"," +
-                "\"result\" : \"ok\"}";
-        ResponseEntity entity = ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(json);
-        return entity;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+        LocalDateTime now = LocalDateTime.now();
+        JSONObject object = new JSONObject();
+        object.append("result", "ok");
+        object.append("username", user.getUsername());
+        object.append("date", formatter.format(now));
+        object.append("text", message_text);
+        return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(object.toString());
     }
 
     @GetMapping("/friends")
@@ -97,9 +103,10 @@ public class MainController {
             }
         else if (action.equals("Remove"))
             friendDAO.removeFriend(appUser.getId(), id);
-        String json = "{\"result\" : \"success\", \"action\" : \"" + action +"\"}";
-        ResponseEntity<String> entity = ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(json);
-        return entity;
+        JSONObject object = new JSONObject();
+        object.append("result", "ok");
+        object.append("action", action);
+        return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(object.toString());
     }
 
     @GetMapping("/searchUsers")
@@ -122,59 +129,5 @@ public class MainController {
         model.addAttribute("appUser", appUser);
         model.addAttribute("from", "searchUsers");
         return "searchUsers";
-    }
-
-    @GetMapping("chats")
-    public String chats(Model model) {
-        AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
-        List<AppUser> users = messageDAO.getChatUsers(appUser.getId(), 0);
-        model.addAttribute("users", users);
-        model.addAttribute("appUser", appUser);
-        return "chats";
-    }
-
-    @GetMapping("chat")
-    public String chat(@RequestParam int id, Model model) {
-        AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
-        AppUser user = appUserDAO.getById(id);
-        List<Message> messages = messageDAO.getMessagesForChat(appUser.getId(), id, 0);
-        model.addAttribute("messages", messages)
-        .addAttribute("title", user.getUsername())
-        .addAttribute("action", "/chat")
-        .addAttribute("id", id);
-        return "chat";
-    }
-
-    @PostMapping("chat")
-    public String sendToChat(@RequestParam int id, @RequestParam String message_text, Model model) {
-        AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
-        AppUser target = appUserDAO.getById(id);
-        messageDAO.insert(appUser.getId(), message_text, appUser.getUsername(), id);
-        List<Message> messages = messageDAO.getMessagesForChat(appUser.getId(), id, 0);
-        model
-                .addAttribute("messages", messages)
-                .addAttribute("title", target.getUsername())
-                .addAttribute("action", "/chat")
-                .addAttribute("id", id);
-        return "chat";
-    }
-
-    @GetMapping("/account")
-    public String account(@RequestParam int id, Model model) {
-
-        AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
-        AppUser user;
-        if (id == 0)
-            user = appUser;
-        else
-            user = appUserDAO.getById(id);
-        if (user == null) {
-            model.addAttribute("message", "User not found");
-            return "user";
-        }
-        model.addAttribute("user", user);
-        if (user.getId() == appUser.getId())
-            model.addAttribute("authority", true);
-        return "user";
     }
 }
