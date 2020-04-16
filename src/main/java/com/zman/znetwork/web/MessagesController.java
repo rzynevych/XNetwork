@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -44,6 +45,7 @@ public class MessagesController {
         AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
         AppUser user = appUserDAO.getById(id);
         List<Message> messages = messageDAO.getMessagesForChat(appUser.getId(), id, 0);
+        Collections.reverse(messages);
         model.addAttribute("messages", messages)
                 .addAttribute("title", user.getUsername())
                 .addAttribute("action", "/chat")
@@ -90,7 +92,7 @@ public class MessagesController {
         }
     }
 
-    public JSONObject generateMessage(Message message) {
+    public static JSONObject generateMessage(Message message) {
         JSONObject jsonMessage = new JSONObject();
         jsonMessage.put("message_id", message.getId());
         jsonMessage.put("username", message.getUsername());
@@ -99,7 +101,7 @@ public class MessagesController {
         return jsonMessage;
     }
 
-    public JSONArray generateMessagesArray(List<Message> messageList) {
+    public static JSONArray generateMessagesArray(List<Message> messageList) {
         JSONArray messages = new JSONArray();
         for (Message message : messageList)
             messages.put(generateMessage(message));

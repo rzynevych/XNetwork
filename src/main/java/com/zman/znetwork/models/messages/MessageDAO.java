@@ -75,10 +75,8 @@ public class MessageDAO {
 
         String sql = "SELECT message_id,parent_id,receiver,username,text,DATE_FORMAT(`date`, '%H:%i') FROM messages " +
                 "WHERE (parent_id=? AND receiver=?) OR (parent_id=? AND receiver=?) ORDER BY message_id DESC LIMIT ?, 50";
-
         try {
             List<Message> messages = jdbcTemplate.query(sql, new Object[]{id1, id2, id2, id1, offset}, new MessageMapper());
-            Collections.reverse(messages);
             return messages;
         }
         catch (Exception e) {

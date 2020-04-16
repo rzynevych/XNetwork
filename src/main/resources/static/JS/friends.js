@@ -1,5 +1,5 @@
-url = "http://10.0.0.20:8080/friends";
-const addButtons = document.getElementsByClassName("add-button");
+const url = "http://" + window.location.host + "/friends";
+const addButtons = document.getElementsByClassName("add-friend-button");
 
 for (let i = 0; i < addButtons.length; i++) {
     addButtons[i].onclick = async function () {

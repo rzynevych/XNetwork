@@ -2,16 +2,18 @@
     <div th:each="user, state : ${users}" class="user" style="display: block;  margin-right: 5px">
         <span th:text="${user.username}" style="display: block; margin-left: 0; margin-right: auto; font-size: 20pt; padding: 0"></span>
         <span th:text="${user.email}" style="display: block"></span>
-        <form method="post" action="/friends" th:id="${'add-friend-form-user-' + user.id}">
-            <input type="hidden" name="id" th:value="${user.id}">
-            <input type="hidden" name="from" th:value="${from}">
-            <input type="hidden" class="action-input" name="action" th:value="${user.friend} ? 'Remove' : 'Add'">
-            <button type="button" class="add-button" th:id="${'user-' + user.id}" th:text="${user.friend} ? 'Remove from friends' : 'Add to friends'"></button>
-        </form>
-        <form method="get" action="/chat">
-            <input type="hidden" name="id" th:value="${user.id}">
-            <button type="submit">Open chat</button>
-        </form>
+        <div class="user-forms-container">
+            <form method="post" action="/friends" th:id="${'add-friend-form-user-' + user.id}">
+                <input type="hidden" name="id" th:value="${user.id}">
+                <input type="hidden" name="from" th:value="${from}">
+                <input type="hidden" class="action-input" name="action" th:value="${user.friend} ? 'Remove' : 'Add'">
+                <button type="button" class="add-friend-button" th:id="${'user-' + user.id}" th:text="${user.friend} ? 'Remove from friends' : 'Add to friends'"></button>
+            </form>
+            <form method="get" action="/chat">
+                <input type="hidden" name="id" th:value="${user.id}">
+                <button type="submit" class="users-form-button">Open chat</button>
+            </form>
+        </div>
         <div class="divider"></div>
     </div>
 </div>

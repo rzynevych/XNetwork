@@ -61,6 +61,13 @@ body {
     box-sizing: border-box;
 }
 
+.user-forms-container {
+    display: flex;
+}
+.users-form-button, .add-friend-button {
+    margin: 0.5em 0.5em 0.5em 0;
+}
+
 .divider {
     display: block;
     height: 0;

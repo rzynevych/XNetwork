@@ -1,19 +1,26 @@
-url = "http://10.0.0.20:8080/chat";
+const url = "http://" + window.location.host + "/chat";
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-form = document.getElementById("send-message-form-1");
+let form = document.getElementById("send-message-form-1");
 form.onsubmit = sendMessageHandler;
-input = form.getElementsByClassName("input-message-1")[0];
-container = document.getElementById("messages-container");
+let input = form.getElementsByClassName("input-message-1")[0];
+let container = document.getElementById("messages-container");
 container.scrollTo(0, container.scrollHeight);
-offset = 50;
+let offset = 50;
+let timerId = 0;
 
 container.onscroll = function () {
-    let first = container.getElementsByClassName("message")[0];
-    if (container.getBoundingClientRect().top - first.getBoundingClientRect().top < 0) {
-        //loading messages
-    }
-}
+    if (timerId != 0 || offset < 0)
+        return ;
+    let first = container.querySelector(".message");
+    let payload = {
+        target : "load",
+        user_id : urlParams.get("id"),
+        offset : offset
+    };
+    if (container.getBoundingClientRect().top - first.getBoundingClientRect().top < 10)
+        timerId = setTimeout(loadMessages, 1000, payload, "afterbegin", first);
+};
 
 function sendMessageHandler() {
     if(input.value == "")
@@ -58,16 +65,14 @@ function updateMessages() {
             body: JSON.stringify(payload)
         }).then(response => response.json()).then(json => {
         if (json.result == "ok") {
-            for (let i = 0; i < json.messages.length; i++) {
-                console.log(JSON.stringify(json.messages[i]));
-                container.insertAdjacentElement("beforeend", messageGenerator(json.messages[i]));
+            for (let message of json.messages) {
+                console.log(JSON.stringify(message));
+                container.insertAdjacentElement("beforeend", messageGenerator(message));
             }
             if (json.messages.length > 0)
                 container.scrollTo(0, container.scrollHeight);
         } else
             console.log(json.error());
-    }).catch(console.log);
+    }).catch(error => console.log(error));
     setTimeout(updateMessages, 1000);
 }
-
-

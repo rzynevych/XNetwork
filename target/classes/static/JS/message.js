@@ -1,3 +1,27 @@
+function loadMessages(payload, position, first) {
+    fetch(url,
+        {
+            method: "POST",
+            body: JSON.stringify(payload)
+        }).then(response => response.json()).then(json => {
+        console.log(JSON.stringify(json));
+        if (json.result == "ok") {
+            for (let message of json.messages) {
+                console.log(JSON.stringify(message));
+                container.insertAdjacentElement(position, messageGenerator(message));
+            }
+            if (first)
+                container.scrollTo(0, first.getBoundingClientRect().top - container.getBoundingClientRect().top);
+            offset += 50;
+            if (json.messages.length < 50)
+                offset = -1;
+        }
+        else
+            console.log(json.error);
+    }).catch(console.log);
+    timerId = 0;
+}
+
 function messageGenerator(json) {
     let message = document.createElement ("div");
     message.className = "message";
