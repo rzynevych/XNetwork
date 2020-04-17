@@ -5,17 +5,15 @@ public class AppUser {
     private String email;
     private String regDate;
     private String username;
-    private String token;
     private byte validate;
     private String password;
     private String last_login;
 
-    public AppUser(int id, String email, String regDate, String username, String token, byte validate, String password, String last_login) {
+    public AppUser(int id, String email, String regDate, String username, byte validate, String password, String last_login) {
         this.id = id;
         this.email = email;
         this.regDate = regDate;
         this.username = username;
-        this.token = token;
         this.validate = validate;
         this.password = password;
         this.last_login = last_login;
@@ -51,14 +49,6 @@ public class AppUser {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
     }
 
     public byte getValidate() {

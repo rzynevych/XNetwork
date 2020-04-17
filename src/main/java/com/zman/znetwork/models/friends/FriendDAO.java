@@ -31,9 +31,7 @@ public class FriendDAO {
                 "(select * from friends where usr_id=?) t1 on t1.friend_id=users.user_id WHERE NOT user_id=? " +
                 "AND (username LIKE ? OR email LIKE ?) LIMIT ?, 50";
         try {
-            if (query.equals(""))
-                query = "%";
-            return jdbcTemplate.query(sql, new Object[]{user_id, user_id, query, query, offset}, new FriendMapper());
+            return jdbcTemplate.query(sql, new Object[]{user_id, user_id, query + "%", query + "%", offset}, new FriendMapper());
         } catch (Exception e) {
             e.printStackTrace();
             return null;

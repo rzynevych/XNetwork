@@ -2,26 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e2ecfbd-a4c3-4367-825d-3b38009ac55b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/utils/JsonGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/PostsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/auth/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/auth/Registration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/friends/Friend.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/friends/Friend.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/friends/FriendDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/friends/FriendDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/messages/MessageDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/messages/MessageDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/users/AppUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/users/AppUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/users/AppUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/users/AppUserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/users/AppUserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/users/AppUserMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/MessagesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/MessagesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/CSS/common-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/CSS/common-style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/JS/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/JS/chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/JS/friends.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/JS/friends.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/JS/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/JS/message.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/JS/posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/JS/posts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/includes/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/includes/users.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/posts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zman/znetwork/auth/Registration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zman/znetwork/auth/Registration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/friends/Friend.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/friends/Friend.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/friends/FriendDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/friends/FriendDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/messages/MessageDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/messages/MessageDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/users/AppUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/users/AppUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/users/AppUserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/users/AppUserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/users/AppUserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/users/AppUserMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/zman/znetwork/web/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zman/znetwork/web/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/CSS/common-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/CSS/common-style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/static/JS/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/JS/chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/JS/friends.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/JS/friends.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/static/JS/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/JS/message.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/static/JS/posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/JS/posts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/includes/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/includes/users.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/posts.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,6 +200,9 @@
       <workItem from="1586852700774" duration="10118000" />
       <workItem from="1586940178615" duration="9089000" />
       <workItem from="1587025098578" duration="902000" />
+      <workItem from="1587035486115" duration="4424000" />
+      <workItem from="1587057767845" duration="1544000" />
+      <workItem from="1587117923778" duration="675000" />
     </task>
     <servers />
   </component>
@@ -250,45 +260,45 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="478" y="143" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1586711743537" />
-    <state width="905" height="192" key="GridCell.Tab.0.bottom" timestamp="1586990806235">
+    <state width="905" height="165" key="GridCell.Tab.0.bottom" timestamp="1587070927235">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="192" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586990806235" />
+    <state width="905" height="165" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587070927235" />
     <state width="1885" height="271" key="GridCell.Tab.0.bottom/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899814" />
-    <state width="905" height="192" key="GridCell.Tab.0.center" timestamp="1586990806235">
+    <state width="905" height="165" key="GridCell.Tab.0.center" timestamp="1587070927235">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="192" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586990806235" />
+    <state width="905" height="165" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1587070927235" />
     <state width="1885" height="271" key="GridCell.Tab.0.center/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899813" />
-    <state width="905" height="192" key="GridCell.Tab.0.left" timestamp="1586990806235">
+    <state width="905" height="165" key="GridCell.Tab.0.left" timestamp="1587070927235">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="192" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586990806235" />
+    <state width="905" height="165" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1587070927235" />
     <state width="1885" height="271" key="GridCell.Tab.0.left/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899813" />
-    <state width="905" height="192" key="GridCell.Tab.0.right" timestamp="1586990806235">
+    <state width="905" height="165" key="GridCell.Tab.0.right" timestamp="1587070927235">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="192" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586990806235" />
+    <state width="905" height="165" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587070927235" />
     <state width="1885" height="271" key="GridCell.Tab.0.right/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899814" />
-    <state width="905" height="192" key="GridCell.Tab.1.bottom" timestamp="1586990806251">
+    <state width="905" height="165" key="GridCell.Tab.1.bottom" timestamp="1587070927235">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="192" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586990806251" />
+    <state width="905" height="165" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587070927235" />
     <state width="1885" height="271" key="GridCell.Tab.1.bottom/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899814" />
-    <state width="905" height="192" key="GridCell.Tab.1.center" timestamp="1586990806235">
+    <state width="905" height="165" key="GridCell.Tab.1.center" timestamp="1587070927235">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="192" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1586990806235" />
+    <state width="905" height="165" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1587070927235" />
     <state width="1885" height="271" key="GridCell.Tab.1.center/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899814" />
-    <state width="905" height="192" key="GridCell.Tab.1.left" timestamp="1586990806235">
+    <state width="905" height="165" key="GridCell.Tab.1.left" timestamp="1587070927235">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="192" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1586990806235" />
+    <state width="905" height="165" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1587070927235" />
     <state width="1885" height="271" key="GridCell.Tab.1.left/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899814" />
-    <state width="905" height="192" key="GridCell.Tab.1.right" timestamp="1586990806251">
+    <state width="905" height="165" key="GridCell.Tab.1.right" timestamp="1587070927235">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="192" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1586990806251" />
+    <state width="905" height="165" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1587070927235" />
     <state width="1885" height="271" key="GridCell.Tab.1.right/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899814" />
     <state width="905" height="192" key="GridCell.Tab.2.bottom" timestamp="1586813126352">
       <screen x="0" y="0" width="1366" height="728" />
@@ -318,10 +328,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="104" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1586711748190" />
-    <state x="472" y="331" key="com.intellij.ide.util.TipDialog" timestamp="1587025106433">
+    <state x="472" y="331" key="com.intellij.ide.util.TipDialog" timestamp="1587117943754">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="472" y="331" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1587025106433" />
+    <state x="472" y="331" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1587117943754" />
     <state x="885" y="630" key="com.intellij.ide.util.TipDialog/0.23.2560.1337@0.23.2560.1337" timestamp="1582982624991" />
     <state x="413" y="130" key="extract.method.dialog" timestamp="1585928345246">
       <screen x="0" y="0" width="1366" height="728" />

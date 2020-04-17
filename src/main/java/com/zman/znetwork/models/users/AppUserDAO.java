@@ -46,10 +46,10 @@ public class AppUserDAO {
 
     public void insert(AppUser user) {
 
-        String sql = "INSERT INTO users (email, username, token, validate, password) VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO users (email, username, validate, password) VALUES (?,?,?,?)";
 
         try {
-            jdbcTemplate.update(sql, user.getEmail(), user.getUsername(), user.getToken(), user.getValidate(), user.getPassword());
+            jdbcTemplate.update(sql, user.getEmail(), user.getUsername(), user.getValidate(), user.getPassword());
         } catch (Exception e) {
             e.printStackTrace();
         }

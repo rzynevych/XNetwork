@@ -44,7 +44,6 @@ public class Registration {
                 data.get("email"),
                 null,
                 data.get("username"),
-                "token",
                 (byte)1,
                 encoder.encode(data.get("password")),
                 null

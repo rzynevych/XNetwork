@@ -22,6 +22,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.List;
 
+import static com.zman.znetwork.utils.JsonGenerator.generateMessage;
+import static com.zman.znetwork.utils.JsonGenerator.generateMessagesArray;
+
 @Controller
 public class MessagesController {
 
@@ -90,22 +93,6 @@ public class MessagesController {
             response.put("error", "Unknown target");
             return bodyBuilder.body(response.toString());
         }
-    }
-
-    public static JSONObject generateMessage(Message message) {
-        JSONObject jsonMessage = new JSONObject();
-        jsonMessage.put("message_id", message.getId());
-        jsonMessage.put("username", message.getUsername());
-        jsonMessage.put("date", message.getDate());
-        jsonMessage.put("text", message.getText());
-        return jsonMessage;
-    }
-
-    public static JSONArray generateMessagesArray(List<Message> messageList) {
-        JSONArray messages = new JSONArray();
-        for (Message message : messageList)
-            messages.put(generateMessage(message));
-        return messages;
     }
 }
 

@@ -25,7 +25,6 @@ container.onscroll = function () {
 };
 
 function sendMessageHandler() {
-    console.log("sendMessageHandler");
     if(input.value == "")
         return false;
     let payload = {

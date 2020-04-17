@@ -66,7 +66,6 @@ function updateMessages() {
         }).then(response => response.json()).then(json => {
         if (json.result == "ok") {
             for (let message of json.messages) {
-                console.log(JSON.stringify(message));
                 container.insertAdjacentElement("beforeend", messageGenerator(message));
             }
             if (json.messages.length > 0)

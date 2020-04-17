@@ -14,7 +14,6 @@ public class AppUserMapper implements RowMapper<AppUser> {
                 rs.getString("email"),
                 rs.getString("reg_date"),
                 rs.getString("username"),
-                rs.getString("token"),
                 rs.getByte("validate"),
                 rs.getString("password"),
                 rs.getString("last_login"));

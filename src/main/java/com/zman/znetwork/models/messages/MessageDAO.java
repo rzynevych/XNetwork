@@ -59,7 +59,7 @@ public class MessageDAO {
 
     public List<AppUser> getChatUsers(int user_id, int offset) {
 
-        String sql = "SELECT user_id, email, reg_date, users.username, token, validate, password, last_login " +
+        String sql = "SELECT user_id, email, reg_date, users.username, validate, password, last_login " +
                 "FROM messages INNER JOIN users ON (user_id=receiver OR user_id=parent_id) " +
                 "WHERE (parent_id=? OR receiver=?) AND NOT receiver=0 " +
                 "GROUP BY user_id ORDER BY MAX(message_id) DESC LIMIT ?, 50";

@@ -4,10 +4,8 @@ function loadMessages(payload, position, first) {
             method: "POST",
             body: JSON.stringify(payload)
         }).then(response => response.json()).then(json => {
-        console.log(JSON.stringify(json));
         if (json.result == "ok") {
             for (let message of json.messages) {
-                console.log(JSON.stringify(message));
                 container.insertAdjacentElement(position, messageGenerator(message));
             }
             if (first)
