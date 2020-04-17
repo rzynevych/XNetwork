@@ -5,6 +5,7 @@ A simple social network on Spring Boot framework
 * Writing posts
 * Adding friends
 * Sending direct messages
+* Interactive interface
 
 ## How to install
 You can just run the application from Intelij Idea
