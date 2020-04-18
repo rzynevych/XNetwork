@@ -2,7 +2,7 @@ const url = "http://" + window.location.host + "/friends";
 const addButtons = document.getElementsByClassName("add-friend-button");
 
 for (let i = 0; i < addButtons.length; i++) {
-    addButtons[i].onclick = async function () {
+    addButtons[i].onclick = function () {
         let form = document.getElementById("add-friend-form-" + this.id);
         fetch(url,
             {

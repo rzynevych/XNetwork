@@ -2,33 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e2ecfbd-a4c3-4367-825d-3b38009ac55b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/utils/JsonGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/PostsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/auth/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/auth/Registration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/friends/Friend.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/friends/Friend.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/friends/FriendDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/friends/FriendDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/messages/MessageDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/messages/MessageDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/users/AppUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/users/AppUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/users/AppUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/users/AppUserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/users/AppUserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/users/AppUserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/MessagesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/MessagesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/JS/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/JS/chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/JS/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/JS/message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/JS/posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/JS/posts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zman/znetwork/auth/Registration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zman/znetwork/auth/Registration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/friends/Friend.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/friends/Friend.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/friends/FriendDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/friends/FriendDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/messages/MessageDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/messages/MessageDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/users/AppUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/users/AppUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/users/AppUserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/users/AppUserDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/users/AppUserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zman/znetwork/models/users/AppUserMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zman/znetwork/web/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zman/znetwork/web/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/JS/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/JS/chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/JS/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/JS/message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/JS/posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/JS/posts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/JS/friends.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/JS/friends.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/ZNetwork.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/JS/friends.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/JS/friends.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,10 +73,10 @@
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="web.server" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -117,8 +97,8 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.Application (1)">
-    <configuration name="Application (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+  <component name="RunManager">
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="ZNetwork" />
       <extension name="coverage">
         <pattern>
@@ -127,26 +107,14 @@
         </pattern>
       </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.zman.znetwork.Application" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="znetwork" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.zman.znetwork.web.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zman.znetwork.Application" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateResources" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.Application (1)" />
         <item itemvalue="Spring Boot.Application" />
       </list>
     </recent_temporary>
@@ -202,7 +170,11 @@
       <workItem from="1587025098578" duration="902000" />
       <workItem from="1587035486115" duration="4424000" />
       <workItem from="1587057767845" duration="1544000" />
-      <workItem from="1587117923778" duration="675000" />
+      <workItem from="1587117923778" duration="1447000" />
+      <workItem from="1587149728884" duration="3006000" />
+      <workItem from="1587157831996" duration="542000" />
+      <workItem from="1587158425198" duration="1409000" />
+      <workItem from="1587197559376" duration="633000" />
     </task>
     <servers />
   </component>
@@ -222,6 +194,11 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
+  </component>
   <component name="WindowStateProjectService">
     <state x="341" y="0" width="697" height="728" key="#Application" timestamp="1585686635359">
       <screen x="0" y="0" width="1366" height="728" />
@@ -235,10 +212,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="22" key="#SQL_Dialects/0.0.1366.728@0.0.1366.728" timestamp="1585908266512" />
-    <state x="274" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586711515226">
+    <state x="106" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587159735681">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="274" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1586711515226" />
+    <state x="106" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1587159735681" />
     <state x="493" y="96" key="#com.intellij.ide.util.MemberChooser" timestamp="1585999726204">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -256,49 +233,49 @@
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
     <state x="937" y="219" key="CommitChangelistDialog2/0.23.2560.1337@0.23.2560.1337" timestamp="1582982722589" />
-    <state x="478" y="143" key="FileChooserDialogImpl" timestamp="1586711743538">
+    <state x="478" y="143" key="FileChooserDialogImpl" timestamp="1587158479811">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="478" y="143" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1586711743537" />
-    <state width="905" height="165" key="GridCell.Tab.0.bottom" timestamp="1587070927235">
+    <state x="478" y="143" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587158479811" />
+    <state width="905" height="163" key="GridCell.Tab.0.bottom" timestamp="1587159868800">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="165" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587070927235" />
+    <state width="905" height="163" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587159868800" />
     <state width="1885" height="271" key="GridCell.Tab.0.bottom/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899814" />
-    <state width="905" height="165" key="GridCell.Tab.0.center" timestamp="1587070927235">
+    <state width="905" height="163" key="GridCell.Tab.0.center" timestamp="1587159868785">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="165" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1587070927235" />
+    <state width="905" height="163" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1587159868785" />
     <state width="1885" height="271" key="GridCell.Tab.0.center/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899813" />
-    <state width="905" height="165" key="GridCell.Tab.0.left" timestamp="1587070927235">
+    <state width="905" height="163" key="GridCell.Tab.0.left" timestamp="1587159868785">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="165" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1587070927235" />
+    <state width="905" height="163" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1587159868785" />
     <state width="1885" height="271" key="GridCell.Tab.0.left/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899813" />
-    <state width="905" height="165" key="GridCell.Tab.0.right" timestamp="1587070927235">
+    <state width="905" height="163" key="GridCell.Tab.0.right" timestamp="1587159868800">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="165" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587070927235" />
+    <state width="905" height="163" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587159868800" />
     <state width="1885" height="271" key="GridCell.Tab.0.right/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899814" />
-    <state width="905" height="165" key="GridCell.Tab.1.bottom" timestamp="1587070927235">
+    <state width="905" height="163" key="GridCell.Tab.1.bottom" timestamp="1587159868800">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="165" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587070927235" />
+    <state width="905" height="163" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587159868800" />
     <state width="1885" height="271" key="GridCell.Tab.1.bottom/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899814" />
-    <state width="905" height="165" key="GridCell.Tab.1.center" timestamp="1587070927235">
+    <state width="905" height="163" key="GridCell.Tab.1.center" timestamp="1587159868800">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="165" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1587070927235" />
+    <state width="905" height="163" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1587159868800" />
     <state width="1885" height="271" key="GridCell.Tab.1.center/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899814" />
-    <state width="905" height="165" key="GridCell.Tab.1.left" timestamp="1587070927235">
+    <state width="905" height="163" key="GridCell.Tab.1.left" timestamp="1587159868800">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="165" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1587070927235" />
+    <state width="905" height="163" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1587159868800" />
     <state width="1885" height="271" key="GridCell.Tab.1.left/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899814" />
-    <state width="905" height="165" key="GridCell.Tab.1.right" timestamp="1587070927235">
+    <state width="905" height="163" key="GridCell.Tab.1.right" timestamp="1587159868800">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="905" height="165" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1587070927235" />
+    <state width="905" height="163" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1587159868800" />
     <state width="1885" height="271" key="GridCell.Tab.1.right/0.23.2560.1337@0.23.2560.1337" timestamp="1582998899814" />
     <state width="905" height="192" key="GridCell.Tab.2.bottom" timestamp="1586813126352">
       <screen x="0" y="0" width="1366" height="728" />
@@ -324,14 +301,14 @@
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
     <state x="1304" y="491" key="Registry/0.23.2560.1337@0.23.2560.1337" timestamp="1582728689728" />
-    <state x="104" y="0" key="SettingsEditor" timestamp="1586711748190">
+    <state x="104" y="0" key="SettingsEditor" timestamp="1587197900405">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="104" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1586711748190" />
-    <state x="472" y="331" key="com.intellij.ide.util.TipDialog" timestamp="1587117943754">
+    <state x="104" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1587197900405" />
+    <state x="472" y="331" key="com.intellij.ide.util.TipDialog" timestamp="1587197574872">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="472" y="331" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1587117943754" />
+    <state x="472" y="331" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1587197574872" />
     <state x="885" y="630" key="com.intellij.ide.util.TipDialog/0.23.2560.1337@0.23.2560.1337" timestamp="1582982624991" />
     <state x="413" y="130" key="extract.method.dialog" timestamp="1585928345246">
       <screen x="0" y="0" width="1366" height="728" />
