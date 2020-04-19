@@ -3,7 +3,6 @@ package com.zman.znetwork.web;
 import com.zman.znetwork.auth.Registration;
 import com.zman.znetwork.auth.UserHandler;
 import com.zman.znetwork.models.users.AppUser;
-import com.zman.znetwork.models.users.AppUserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -2,9 +2,7 @@ package com.zman.znetwork.web;
 
 import com.zman.znetwork.auth.UserHandler;
 import com.zman.znetwork.models.messages.Message;
-import com.zman.znetwork.models.messages.MessageDAO;
 import com.zman.znetwork.models.users.AppUser;
-import com.zman.znetwork.models.users.AppUserDAO;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;

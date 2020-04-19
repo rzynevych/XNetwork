@@ -1,7 +1,6 @@
 package com.zman.znetwork.auth;
 
 import com.zman.znetwork.models.users.AppUser;
-import com.zman.znetwork.models.users.AppUserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

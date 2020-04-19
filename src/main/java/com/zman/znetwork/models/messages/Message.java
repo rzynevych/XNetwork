@@ -1,64 +1,44 @@
 package com.zman.znetwork.models.messages;
 
+import javax.persistence.*;
+import java.util.Date;
+
 public class Message {
 
-    private long id;
-    private int parent_id;
-    private int receiver;
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private Long messageID;
+    private Integer parentID;
+    private Integer receiver;
     private String username;
     private String text;
-    private String date;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date date;
 
-    public Message () {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Long getMessageID() {
+        return messageID;
     }
 
-    public Message(long id, int parent_id, int receiver, String username, String text, String date) {
-        this.id = id;
-        this.parent_id = parent_id;
-        this.receiver = receiver;
-        this.username = username;
-        this.text = text;
-        this.date = date;
+    public void setMessageID(Long messageID) {
+        this.messageID = messageID;
     }
 
-    public Message(long id, String username, String text, String date) {
-        this.id = id;
-        this.username = username;
-        this.text = text;
-        this.date = date;
+    public Integer getParentID() {
+        return parentID;
     }
 
-    public long getId() {
-        return id;
+    public void setParentID(Integer parentID) {
+        this.parentID = parentID;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public int getReceiver() {
+    public Integer getReceiver() {
         return receiver;
     }
 
-    public void setReceiver(int receiver) {
+    public void setReceiver(Integer receiver) {
         this.receiver = receiver;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public int getParent_id() {
-        return parent_id;
-    }
-
-    public void setParent_id(int parent_id) {
-        this.parent_id = parent_id;
     }
 
     public String getUsername() {
@@ -69,11 +49,19 @@ public class Message {
         this.username = username;
     }
 
-    public String getDate() {
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 }

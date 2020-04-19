@@ -2,7 +2,6 @@ package com.zman.znetwork.web;
 
 import com.zman.znetwork.auth.UserHandler;
 import com.zman.znetwork.models.friends.Friend;
-import com.zman.znetwork.models.friends.FriendDAO;
 import com.zman.znetwork.models.friends.FriendInsertException;
 import com.zman.znetwork.models.users.AppUser;
 import org.json.JSONObject;

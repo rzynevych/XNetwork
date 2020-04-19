@@ -2,13 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e2ecfbd-a4c3-4367-825d-3b38009ac55b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/Frendships/Frendship.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/repos/AppUserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/repos/FriendRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/repos/MessageRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/auth/Registration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/auth/Registration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/auth/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/auth/UserDetailsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/friends/Friend.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/friends/Friend.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/friends/FriendDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/friends/FriendMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/messages/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/messages/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/messages/MessageDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/messages/MessageDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/messages/MessageMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/users/AppUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/users/AppUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/users/AppUserDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/models/users/AppUserMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/MessagesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/MessagesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/PostsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/PostsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/JS/friends.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/JS/friends.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/ZNetwork.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/JS/friends.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/JS/friends.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +54,7 @@
         <option value="HTML File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -71,7 +88,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tmp" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -79,14 +96,15 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\coding\java\ZNetwork\tmp" />
+      <recent name="$PROJECT_DIR$/src/main/resources/templates" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\coding\java\ZNetwork\src\main\resources\static\CSS" />
       <recent name="D:\coding\java\ZNetwork\src\main\resources\static\JS" />
       <recent name="D:\coding\java\ZNetwork\src\main\resources\templates\includes" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/includes" />
-      <recent name="$PROJECT_DIR$/src/main/resources/templates" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/templates" />
     </key>
   </component>
@@ -174,7 +192,9 @@
       <workItem from="1587149728884" duration="3006000" />
       <workItem from="1587157831996" duration="542000" />
       <workItem from="1587158425198" duration="1409000" />
-      <workItem from="1587197559376" duration="633000" />
+      <workItem from="1587197559376" duration="9370000" />
+      <workItem from="1587211852153" duration="2284000" />
+      <workItem from="1587285631939" duration="1874000" />
     </task>
     <servers />
   </component>
@@ -208,27 +228,27 @@
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
     <state x="786" y="302" key="#Project_Structure/0.23.2560.1337@0.23.2560.1337" timestamp="1582719212260" />
-    <state x="275" y="22" key="#SQL_Dialects" timestamp="1585908266512">
+    <state x="275" y="22" key="#SQL_Dialects" timestamp="1587205818592">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="22" key="#SQL_Dialects/0.0.1366.728@0.0.1366.728" timestamp="1585908266512" />
-    <state x="106" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587159735681">
+    <state x="275" y="22" key="#SQL_Dialects/0.0.1366.728@0.0.1366.728" timestamp="1587205818592" />
+    <state x="106" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587205888193">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="106" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1587159735681" />
-    <state x="493" y="96" key="#com.intellij.ide.util.MemberChooser" timestamp="1585999726204">
+    <state x="106" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1587205888193" />
+    <state x="493" y="96" key="#com.intellij.ide.util.MemberChooser" timestamp="1587206874823">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="493" y="96" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1585999726204" />
+    <state x="493" y="96" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1587206874823" />
     <state x="924" y="536" key="#com.intellij.ide.util.MemberChooser/0.23.2560.1337@0.23.2560.1337" timestamp="1582979874065" />
     <state x="531" y="251" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1585665622376">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="531" y="251" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1366.728@0.0.1366.728" timestamp="1585665622376" />
-    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585911230617">
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587199159298">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1585911230617" />
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1587199159298" />
     <state x="937" y="219" key="CommitChangelistDialog2" timestamp="1582982722589">
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
@@ -305,10 +325,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="104" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1587197900405" />
-    <state x="472" y="331" key="com.intellij.ide.util.TipDialog" timestamp="1587197574872">
+    <state x="472" y="331" key="com.intellij.ide.util.TipDialog" timestamp="1587285634047">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="472" y="331" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1587197574872" />
+    <state x="472" y="331" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1587285634047" />
     <state x="885" y="630" key="com.intellij.ide.util.TipDialog/0.23.2560.1337@0.23.2560.1337" timestamp="1582982624991" />
     <state x="413" y="130" key="extract.method.dialog" timestamp="1585928345246">
       <screen x="0" y="0" width="1366" height="728" />
@@ -318,9 +338,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1585914443287" />
-    <state x="1425" y="542" width="670" height="676" key="search.everywhere.popup" timestamp="1582728659325">
-      <screen x="0" y="23" width="2560" height="1337" />
+    <state x="760" y="283" width="672" height="369" key="search.everywhere.popup" timestamp="1587207195286">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="760" y="283" width="672" height="369" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1587207195286" />
     <state x="1425" y="542" width="670" height="676" key="search.everywhere.popup/0.23.2560.1337@0.23.2560.1337" timestamp="1582728659325" />
   </component>
 </project>

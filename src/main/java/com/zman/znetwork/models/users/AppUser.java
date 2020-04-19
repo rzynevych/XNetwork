@@ -1,30 +1,44 @@
 package com.zman.znetwork.models.users;
 
+import javax.persistence.*;
+import java.util.Date;
+
+@Entity
 public class AppUser {
-    private int id;
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private Integer userID;
     private String email;
-    private String regDate;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date regDate;
     private String username;
-    private byte validate;
+    private Byte validate;
     private String password;
-    private String last_login;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date lastLogin;
 
-    public AppUser(int id, String email, String regDate, String username, byte validate, String password, String last_login) {
-        this.id = id;
-        this.email = email;
+    public Date getLastLogin() {
+        return lastLogin;
+    }
+
+    public void setLastLogin(Date lastLogin) {
+        this.lastLogin = lastLogin;
+    }
+
+    public Integer getUserID() {
+        return userID;
+    }
+
+    public void setUserID(Integer userID) {
+        this.userID = userID;
+    }
+
+    public Date getRegDate() {
+        return regDate;
+    }
+
+    public void setRegDate(Date regDate) {
         this.regDate = regDate;
-        this.username = username;
-        this.validate = validate;
-        this.password = password;
-        this.last_login = last_login;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getEmail() {
@@ -35,14 +49,6 @@ public class AppUser {
         this.email = email;
     }
 
-    public String getRegDate() {
-        return regDate;
-    }
-
-    public void setRegDate(String regDate) {
-        this.regDate = regDate;
-    }
-
     public String getUsername() {
         return username;
     }
@@ -51,11 +57,11 @@ public class AppUser {
         this.username = username;
     }
 
-    public byte getValidate() {
+    public Byte getValidate() {
         return validate;
     }
 
-    public void setValidate(byte validate) {
+    public void setValidate(Byte validate) {
         this.validate = validate;
     }
 
@@ -65,13 +71,5 @@ public class AppUser {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getLast_login() {
-        return last_login;
-    }
-
-    public void setLast_login(String last_login) {
-        this.last_login = last_login;
     }
 }
