@@ -1,44 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e2ecfbd-a4c3-4367-825d-3b38009ac55b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/JS/chats.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/utils/JsonGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/utils/JsonGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/MessagesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/MessagesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/PostsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zman/znetwork/web/PostsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/CSS/common-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/CSS/common-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/CSS/messages.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/CSS/messages.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/JS/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/JS/chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/JS/friends.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/JS/friends.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/JS/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/JS/items.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/JS/posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/JS/posts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/chat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/chats.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/chats.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/friends.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/friends.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/includes/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/includes/users.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/posts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/searchUsers.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/searchUsers.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/userPosts.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/userPosts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zman/znetwork/utils/JsonGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zman/znetwork/utils/JsonGenerator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zman/znetwork/web/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zman/znetwork/web/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zman/znetwork/web/MessagesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zman/znetwork/web/MessagesController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zman/znetwork/web/PostsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zman/znetwork/web/PostsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/CSS/common-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/CSS/common-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/CSS/messages.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/CSS/messages.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/JS/chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/JS/chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/JS/friends.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/JS/friends.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/JS/message.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/JS/posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/JS/posts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/chat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/chats.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/chats.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/friends.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/friends.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/includes/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/includes/users.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/posts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/searchUsers.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/searchUsers.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/userPosts.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/userPosts.html" afterDir="false" />
-    </list>
+    <list default="true" id="3e2ecfbd-a4c3-4367-825d-3b38009ac55b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -209,7 +172,7 @@
       <workItem from="1587157831996" duration="542000" />
       <workItem from="1587158425198" duration="1409000" />
       <workItem from="1587197559376" duration="633000" />
-      <workItem from="1587291034354" duration="15567000" />
+      <workItem from="1587291034354" duration="15920000" />
     </task>
     <servers />
   </component>
