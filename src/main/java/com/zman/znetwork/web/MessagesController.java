@@ -22,8 +22,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.List;
 
-import static com.zman.znetwork.utils.JsonGenerator.generateMessage;
-import static com.zman.znetwork.utils.JsonGenerator.generateMessagesArray;
+import static com.zman.znetwork.utils.JsonGenerator.*;
 
 @Controller
 public class MessagesController {
@@ -41,6 +40,18 @@ public class MessagesController {
         model.addAttribute("users", users);
         model.addAttribute("appUser", appUser);
         return "chats";
+    }
+
+    @PostMapping("chats")
+    public ResponseEntity<String> loadChats(@RequestBody String json) {
+        AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
+        JSONObject jsonObject = new JSONObject(json);
+        List<AppUser> users = messageDAO.getChatUsers(appUser.getId(), jsonObject.getInt("offset"));
+        JSONObject response = new JSONObject();
+        JSONArray chatsArray = generateChatsArray(users);
+        response.put("result", "ok");
+        response.put("items", chatsArray);
+        return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(response.toString());
     }
 
     @GetMapping("chat")
@@ -73,7 +84,7 @@ public class MessagesController {
                     json.getInt("user_id"), last);
             JSONArray messagesArray = generateMessagesArray(messages);
             response.put("result", "ok");
-            response.put("messages", messagesArray);
+            response.put("items", messagesArray);
             return bodyBuilder.body(response.toString());
         } else if (target.equals("send")) {
             String text = json.getString("text");
@@ -86,7 +97,7 @@ public class MessagesController {
             messages = messageDAO.getMessagesForChat(user.getId(), json.getInt("user_id"), json.getInt("offset"));
             JSONArray messagesArray = generateMessagesArray(messages);
             response.put("result", "ok");
-            response.put("messages", messagesArray);
+            response.put("items", messagesArray);
             return bodyBuilder.body(response.toString());
         } else {
             response.put("result", "error");

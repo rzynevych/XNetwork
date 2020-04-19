@@ -21,7 +21,7 @@ container.onscroll = function () {
         offset : offset
     };
     if (last.getBoundingClientRect().top - container.getBoundingClientRect().bottom < 10)
-        timerId = setTimeout(loadMessages, 1000, payload, "beforeend", null);
+        timerId = setTimeout(loadItems, 1000, payload, "beforeend", generateMessage, null);
 };
 
 function sendMessageHandler() {
@@ -37,7 +37,7 @@ function sendMessageHandler() {
             body: JSON.stringify(payload)
         }).then(response => response.json()).then(json => {
         if (json.result == "ok") {
-            container.insertAdjacentElement("afterbegin", messageGenerator(json.message));
+            container.insertAdjacentElement("afterbegin", generateMessage(json.message));
         }
         else
             console.log(json.error);
