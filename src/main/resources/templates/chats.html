@@ -15,9 +15,9 @@
     <div class="container" id="main-block">
         <th:block th:include="includes/header.html"> </th:block>
         <div class="items-container">
-            <div th:each="user, state : ${users}" class="user" style="display: block; margin-right: 5px">
-                <a th:text="${user.username}" th:href="${'chat?id=' + user.id}" style="display: block; margin-left: 0; margin-right: auto; font-size: 20pt; padding: 0"></a>
-                <span th:text="${user.email}" style="display: block"></span>
+            <div th:each="user, state : ${users}" class="chat-user">
+                <a th:text="${user.username}" th:href="${'chat?id=' + user.id}" class="chat-user-link"></a>
+                <span th:text="${user.email}" class="chat-user-email" style="display: block"></span>
                 <div class="divider"></div>
             </div>
         </div>
@@ -25,4 +25,5 @@
 </div>
 <th:block th:include="includes/footer.html"></th:block>
 </body>
+<script src="JS/chats.js"></script>
 </html>

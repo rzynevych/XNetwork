@@ -13,13 +13,15 @@ container.onscroll = function () {
     if (timerId != 0 || offset < 0)
         return ;
     let first = container.querySelector(".message");
+    if (first == undefined)
+        return;
     let payload = {
         target : "load",
         user_id : urlParams.get("id"),
         offset : offset
     };
     if (container.getBoundingClientRect().top - first.getBoundingClientRect().top < 10)
-        timerId = setTimeout(loadMessages, 1000, payload, "afterbegin", first);
+        timerId = setTimeout(loadItems, 1000, payload, "afterbegin", generateMessage, first);
 };
 
 function sendMessageHandler() {
@@ -37,7 +39,7 @@ function sendMessageHandler() {
         }).then(response => response.json()).then(json => {
         console.log(JSON.stringify(json));
         if (json.result == "ok") {
-            container.insertAdjacentElement("beforeend", messageGenerator(json.message));
+            container.insertAdjacentElement("beforeend", generateMessage(json.message));
             container.scrollTo(0, container.scrollHeight);
         }
         else
@@ -50,6 +52,8 @@ function sendMessageHandler() {
 setTimeout(updateMessages, 1000);
 function updateMessages() {
     let messages = document.querySelectorAll(".message");
+    if (messages.length == 0)
+        return ;
     let last = messages[messages.length - 1];
     let payload = {
         target : "update",
@@ -65,10 +69,10 @@ function updateMessages() {
             body: JSON.stringify(payload)
         }).then(response => response.json()).then(json => {
         if (json.result == "ok") {
-            for (let message of json.messages) {
-                container.insertAdjacentElement("beforeend", messageGenerator(message));
+            for (let message of json.items) {
+                container.insertAdjacentElement("beforeend", generateMessage(message));
             }
-            if (json.messages.length > 0)
+            if (json.items.length > 0)
                 container.scrollTo(0, container.scrollHeight);
         } else
             console.log(json.error());

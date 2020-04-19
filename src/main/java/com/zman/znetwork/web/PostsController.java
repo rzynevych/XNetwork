@@ -72,7 +72,7 @@ public class PostsController {
             if (messages != null) {
                 JSONArray messagesArray = generateMessagesArray(messages);
                 response.put("result", "ok");
-                response.put("messages", messagesArray);
+                response.put("items", messagesArray);
             }
         } else
             response.put("error", "Unknown target");

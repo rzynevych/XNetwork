@@ -4,6 +4,8 @@ import com.zman.znetwork.auth.UserHandler;
 import com.zman.znetwork.models.friends.Friend;
 import com.zman.znetwork.models.friends.FriendInsertException;
 import com.zman.znetwork.models.users.AppUser;
+import com.zman.znetwork.utils.JsonGenerator;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -46,20 +49,42 @@ public class MainController {
     }
 
     @PostMapping("/friends")
-    public ResponseEntity<String> friendsHandler(@RequestParam int id, @RequestParam String action, @RequestParam String from, Model model) {
+    public ResponseEntity<String> friendsHandler(@RequestBody String json) {
         AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
-        if (action.equals("Add"))
-            try {
-                friendDAO.insertFriend(appUser.getId(), id);
-            } catch (FriendInsertException e) {
-                e.printStackTrace();
-            }
-        else if (action.equals("Remove"))
-            friendDAO.removeFriend(appUser.getId(), id);
-        JSONObject object = new JSONObject();
-        object.append("result", "ok");
-        object.append("action", action);
-        return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(object.toString());
+        JSONObject jsonObject = new JSONObject(json);
+        String target = jsonObject.getString("target");
+        JSONObject response = new JSONObject();
+        List<Friend> users = null;
+        if (target.equals("friend-handling")) {
+            String action = jsonObject.getString("action");
+            if (action.equals("Add"))
+                try {
+                    friendDAO.insertFriend(appUser.getId(), jsonObject.getInt("id"));
+                } catch (FriendInsertException e) {
+                    e.printStackTrace();
+                }
+            else if (action.equals("Remove"))
+                friendDAO.removeFriend(appUser.getId(), jsonObject.getInt("id"));
+            response.put("result", "ok");
+            response.put("action", action);
+        } else if (target.equals("load")) {
+            int offset = jsonObject.getInt("offset");
+            String location = jsonObject.getString("location");
+            if (location.equals("/friends"))
+                users = friendDAO.getFriendsForUser(appUser.getId(), offset);
+            else if (location.equals("/searchUsers"))
+                users = friendDAO.getUsersByQuery(jsonObject.getString("query"), appUser.getId(), offset);
+            JSONArray jsonUsers = JsonGenerator.generateUsersArray(users);
+            response.put("result", "ok");
+            response.put("items", jsonUsers);
+        } else if (target.equals("search")) {
+            users = friendDAO.getUsersByQuery(jsonObject.getString("query"), appUser.getId(), 0);
+            JSONArray jsonUsers = JsonGenerator.generateUsersArray(users);
+            response.put("result", "ok");
+            response.put("users", jsonUsers);
+        } else
+            response.put("error", "Unknown target");
+        return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(response.toString());
     }
 
     @GetMapping("/searchUsers")
