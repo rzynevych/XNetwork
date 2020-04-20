@@ -20,7 +20,7 @@ public class MessageDAO {
 
     public List<Message> selectPosts(int id, int offset) {
 
-        String sql = "SELECT message_id,parent_id,receiver,username,text,DATE_FORMAT(`date`, '%H:%i') " +
+        String sql = "SELECT message_id,parent_id,receiver,username,text,date " +
                 "FROM messages INNER JOIN friends ON friend_id=parent_id WHERE usr_id=? " +
                 "AND receiver=0 ORDER BY message_id DESC LIMIT ?, 50";
         try {
@@ -47,7 +47,7 @@ public class MessageDAO {
 
     public List<Message> getMessagesForChat(int id1, int id2, int offset) {
 
-        String sql = "SELECT message_id,parent_id,receiver,username,text,DATE_FORMAT(`date`, '%H:%i') FROM messages " +
+        String sql = "SELECT message_id,parent_id,receiver,username,text,date FROM messages " +
                 "WHERE (parent_id=? AND receiver=?) OR (parent_id=? AND receiver=?) ORDER BY message_id DESC LIMIT ?, 50";
         try {
             List<Message> messages = jdbcTemplate.query(sql, new Object[]{id1, id2, id2, id1, offset}, new MessageMapper());
@@ -61,7 +61,7 @@ public class MessageDAO {
 
     public List<Message> getMessagesForUpdate(int id1, int id2, long last) {
 
-        String sql = "SELECT message_id,parent_id,receiver,username,text,DATE_FORMAT(`date`, '%H:%i') FROM messages " +
+        String sql = "SELECT message_id,parent_id,receiver,username,text,date FROM messages " +
                 "WHERE (parent_id=? AND receiver=?) AND message_id > ? ORDER BY message_id ASC LIMIT 50";
         try {
             return jdbcTemplate.query(sql, new Object[]{id2, id1, last}, new MessageMapper());

@@ -8,7 +8,7 @@ function loadItems(payload, position, generator, first) {
             for (let item of json.items) {
                 container.insertAdjacentElement(position, generateMessage(item));
             }
-            if (first)
+            if (first && first.getBoundingClientRect().top > 100)
                 container.scrollTo(0, first.getBoundingClientRect().top - container.getBoundingClientRect().top);
             offset += 50;
             if (json.items.length < 50)

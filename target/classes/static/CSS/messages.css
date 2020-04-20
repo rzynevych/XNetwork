@@ -52,6 +52,7 @@
 }
 
 .message-date {
+    font-size: small;
     padding-top: 10px;
     opacity: 0.5
 }
