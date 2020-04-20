@@ -29,3 +29,13 @@ CREATE TABLE IF NOT EXISTS `friends` (
                                        `add_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
                                        PRIMARY KEY (`note_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE utf8_unicode_ci;
+
+drop table chats;
+CREATE TABLE IF NOT EXISTS `chats`
+(
+    `chat_id`   bigint NOT NULL AUTO_INCREMENT,
+    `id_1`      int    NOT NULL,
+    `id_2`      int    NOT NULL,
+    `last_used` datetime DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`chat_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_unicode_ci;
