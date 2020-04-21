@@ -1,8 +1,9 @@
-package com.zman.znetwork.models.messages;
+package com.zman.znetwork.models;
 
 import javax.persistence.*;
 import java.util.Date;
 
+@Entity
 public class Message {
 
     @Id
@@ -14,6 +15,23 @@ public class Message {
     private String text;
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
+
+    public Message() {}
+
+    public  Message(int parentID, int receiver, String username, String text) {
+        this.parentID = parentID;
+        this.receiver = receiver;
+        this.username = username;
+        this.text = text;
+        this.date = new Date();
+    }
+
+    public Message(long messageID, String username, String text, Date date) {
+        this.messageID = messageID;
+        this.username = username;
+        this.text = text;
+        this.date = date;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

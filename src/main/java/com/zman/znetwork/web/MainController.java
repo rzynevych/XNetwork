@@ -1,9 +1,11 @@
 package com.zman.znetwork.web;
 
 import com.zman.znetwork.auth.UserHandler;
-import com.zman.znetwork.models.friends.Friend;
-import com.zman.znetwork.models.friends.FriendInsertException;
-import com.zman.znetwork.models.users.AppUser;
+import com.zman.znetwork.models.Friend;
+import com.zman.znetwork.models.Friendship;
+import com.zman.znetwork.models.AppUser;
+import com.zman.znetwork.repos.FriendRepository;
+import com.zman.znetwork.repos.FriendshipRepository;
 import com.zman.znetwork.utils.JsonGenerator;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -23,7 +25,10 @@ import java.util.List;
 public class MainController {
 
     @Autowired
-    private FriendDAO friendDAO;
+    private FriendRepository friendRepository;
+
+    @Autowired
+    private FriendshipRepository friendshipRepository;
 
     @GetMapping({"/", "/welcome"})
     public String welcome(Model model) {
@@ -31,7 +36,7 @@ public class MainController {
         if (UserHandler.isUserAuthorized())
         {
             AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
-            model.addAttribute("account", "/account?id=" + appUser.getId());
+            model.addAttribute("account", "/account?id=" + appUser.getUserID());
         }
         else
             model.addAttribute("account", "/account?id=0");
@@ -41,7 +46,7 @@ public class MainController {
     @GetMapping("/friends")
     public String friends(Model model) {
         AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
-        List<Friend> users = friendDAO.getFriendsForUser(appUser.getId(), 0);
+        List<Friend> users = friendRepository.getFriendsForUser(appUser.getUserID(), 0);
         model.addAttribute("users", users);
         model.addAttribute("appUser", appUser);
         model.addAttribute("from", "friends");
@@ -54,32 +59,29 @@ public class MainController {
         JSONObject jsonObject = new JSONObject(json);
         String target = jsonObject.getString("target");
         JSONObject response = new JSONObject();
+        JsonGenerator jsonGenerator = new JsonGenerator();
         List<Friend> users = null;
         if (target.equals("friend-handling")) {
             String action = jsonObject.getString("action");
             if (action.equals("Add"))
-                try {
-                    friendDAO.insertFriend(appUser.getId(), jsonObject.getInt("id"));
-                } catch (FriendInsertException e) {
-                    e.printStackTrace();
-                }
+                friendshipRepository.save(new Friendship(appUser.getUserID(), jsonObject.getInt("id")));
             else if (action.equals("Remove"))
-                friendDAO.removeFriend(appUser.getId(), jsonObject.getInt("id"));
+                friendshipRepository.delete(new Friendship(appUser.getUserID(), jsonObject.getInt("id")));
             response.put("result", "ok");
             response.put("action", action);
         } else if (target.equals("load")) {
             int offset = jsonObject.getInt("offset");
             String location = jsonObject.getString("location");
             if (location.equals("/friends"))
-                users = friendDAO.getFriendsForUser(appUser.getId(), offset);
+                users = friendRepository.getFriendsForUser(appUser.getUserID(), offset);
             else if (location.equals("/searchUsers"))
-                users = friendDAO.getUsersByQuery(jsonObject.getString("query"), appUser.getId(), offset);
-            JSONArray jsonUsers = JsonGenerator.generateUsersArray(users);
+                users = friendRepository.getUsersByQuery(jsonObject.getString("query"), appUser.getUserID(), offset);
+            JSONArray jsonUsers = jsonGenerator.generateUsersArray(users);
             response.put("result", "ok");
             response.put("items", jsonUsers);
         } else if (target.equals("search")) {
-            users = friendDAO.getUsersByQuery(jsonObject.getString("query"), appUser.getId(), 0);
-            JSONArray jsonUsers = JsonGenerator.generateUsersArray(users);
+            users = friendRepository.getUsersByQuery(jsonObject.getString("query") + "%", appUser.getUserID(), 0);
+            JSONArray jsonUsers = jsonGenerator.generateUsersArray(users);
             response.put("result", "ok");
             response.put("users", jsonUsers);
         } else
@@ -91,7 +93,7 @@ public class MainController {
     public String searchUsers(Model model) {
 
         AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
-        List<Friend> users = friendDAO.getUsersByQuery("", appUser.getId(), 0);
+        List<Friend> users = friendRepository.getUsersByQuery("%", appUser.getUserID(), 0);
         model.addAttribute("users", users);
         model.addAttribute("appUser", appUser);
         model.addAttribute("from", "searchUsers");
@@ -102,7 +104,7 @@ public class MainController {
     public String searchUsersHandler(@RequestParam String query, Model model) {
 
         AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
-        List<Friend> users = friendDAO.getUsersByQuery(query, appUser.getId(), 0);
+        List<Friend> users = friendRepository.getUsersByQuery(query + "%", appUser.getUserID(), 0);
         model.addAttribute("users", users);
         model.addAttribute("appUser", appUser);
         model.addAttribute("from", "searchUsers");

@@ -3,11 +3,18 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 let form = document.getElementById("send-message-form-1");
 form.onsubmit = sendMessageHandler;
-let input = form.getElementsByClassName("input-message-1")[0];
+let input = form.querySelector(".input-message-1");
 let container = document.getElementById("messages-container");
-container.scrollTo(0, container.scrollHeight);
-let offset = 50;
+let offset = 0;
 let timerId = 0;
+loadItems({
+    target : "load",
+    user_id : urlParams.get("id"),
+    offset : offset
+},"afterbegin", generateMessage, null)
+container.scrollTo(0, container.scrollHeight);
+
+let updating = false;
 
 container.onscroll = function () {
     if (timerId != 0 || offset < 0)
@@ -25,7 +32,11 @@ container.onscroll = function () {
 };
 
 function sendMessageHandler() {
-    if(input.value == "")
+    if (updating) {
+        setTimeout(sendMessageHandler, 100);
+        return ;
+    }
+    if (input.value == "")
         return false;
     let payload = {
         target : "send",
@@ -60,6 +71,7 @@ function updateMessages() {
         user_id : urlParams.get("id"),
         last : last.id
     };
+    updating = true;
     fetch(url,
         {
             method: "POST",
@@ -74,8 +86,9 @@ function updateMessages() {
             }
             if (json.items.length > 0)
                 container.scrollTo(0, container.scrollHeight);
+            updating = false;
         } else
-            console.log(json.error());
+            console.log(json.error);
     }).catch(error => console.log(error));
     setTimeout(updateMessages, 1000);
 }

@@ -3,8 +3,9 @@ package com.zman.znetwork.auth;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.zman.znetwork.models.users.AppUser;
-import com.zman.znetwork.models.users.UserInfo;
+import com.zman.znetwork.models.AppUser;
+import com.zman.znetwork.models.UserInfo;
+import com.zman.znetwork.repos.AppUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -18,12 +19,11 @@ import org.springframework.stereotype.Service;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    private AppUserDAO appUserDAO;
+    private AppUserRepository appUserRepository;
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        AppUser appUser = appUserDAO.getByEmail(userName);
-
+        AppUser appUser = appUserRepository.findByEmail(userName);
         if (appUser == null) {
             throw new UsernameNotFoundException("User " + userName + " was not found in the database");
         }

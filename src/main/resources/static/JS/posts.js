@@ -7,8 +7,14 @@ if (form != null) {
     input = form.querySelector(".input-message-1");
 }
 let container = document.getElementById("messages-container");
-let offset = 50;
+let offset = 0;
 let timerId = 0;
+loadItems({
+    target : "load",
+    location : window.location.pathname,
+    offset : offset
+},"beforeend", generateMessage, null)
+
 
 container.onscroll = function () {
     if (timerId != 0 || offset < 0)

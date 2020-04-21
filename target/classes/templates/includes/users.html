@@ -4,12 +4,12 @@
         <span th:text="${user.email}" class="user-email"></span>
         <div class="user-forms-container">
             <form method="post" action="/friends" class="add-friend-form">
-                <input type="hidden" name="id" class="id-input" th:value="${user.id}">
+                <input type="hidden" name="id" class="id-input" th:value="${user.userID}">
                 <input type="hidden" class="action-input" name="action" th:value="${user.friend} ? 'Remove' : 'Add'">
                 <button type="submit" class="users-form-button" th:text="${user.friend} ? 'Remove from friends' : 'Add to friends'"></button>
             </form>
             <form method="get" action="/chat">
-                <input type="hidden" name="id" class="id-input" th:value="${user.id}">
+                <input type="hidden" name="id" class="id-input" th:value="${user.userID}">
                 <button type="submit" class="users-form-button">Open chat</button>
             </form>
         </div>

@@ -1,4 +1,4 @@
-package com.zman.znetwork.models.users;
+package com.zman.znetwork.models;
 
 import javax.persistence.*;
 import java.util.Date;

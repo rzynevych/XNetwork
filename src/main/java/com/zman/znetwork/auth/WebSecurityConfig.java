@@ -31,7 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
         http.headers().frameOptions().disable(); // ВАЖНО
-        http.authorizeRequests().antMatchers("/", "welcome", "/login", "/signup").permitAll();
+        http.authorizeRequests().antMatchers("/posts", "/", "welcome", "/login", "/signup").permitAll();
         http.authorizeRequests()
                 .antMatchers("/posts", "/account", "/userPosts", "/friends", "/chat", "/chats", "/searchUsers", "/logout")
                 .access("hasRole('ROLE_USER')");

@@ -2,7 +2,8 @@ package com.zman.znetwork.web;
 
 import com.zman.znetwork.auth.Registration;
 import com.zman.znetwork.auth.UserHandler;
-import com.zman.znetwork.models.users.AppUser;
+import com.zman.znetwork.models.AppUser;
+import com.zman.znetwork.repos.AppUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +20,7 @@ public class AuthController {
     private Registration registration;
 
     @Autowired
-    private AppUserDAO appUserDAO;
+    private AppUserRepository appUserRepository;
 
     @GetMapping("/login")
     public String login() {
@@ -53,13 +54,13 @@ public class AuthController {
         if (id == 0)
             user = appUser;
         else
-            user = appUserDAO.getById(id);
+            user = appUserRepository.findByUserID(id);
         if (user == null) {
             model.addAttribute("message", "User not found");
             return "user";
         }
         model.addAttribute("user", user);
-        if (user.getId() == appUser.getId())
+        if (user.getUserID() == appUser.getUserID())
             model.addAttribute("authority", true);
         return "user";
     }

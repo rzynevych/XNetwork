@@ -16,7 +16,7 @@
         <th:block th:include="includes/header.html"> </th:block>
         <div class="items-container">
             <div th:each="user, state : ${users}" class="chat-user">
-                <a th:text="${user.username}" th:href="${'chat?id=' + user.id}" class="chat-user-link"></a>
+                <a th:text="${user.username}" th:href="${'chat?id=' + user.userID}" class="chat-user-link"></a>
                 <span th:text="${user.email}" class="chat-user-email" style="display: block"></span>
                 <div class="divider"></div>
             </div>

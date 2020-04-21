@@ -1,6 +1,7 @@
 package com.zman.znetwork.auth;
 
-import com.zman.znetwork.models.users.AppUser;
+import com.zman.znetwork.models.AppUser;
+import com.zman.znetwork.repos.AppUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -10,22 +11,22 @@ import java.util.Map;
 @Service
 public class Registration {
 
-    private AppUserDAO appUserDAO;
+    @Autowired
+    private AppUserRepository appUserRepository;
     private BCryptPasswordEncoder encoder;
 
-    public Registration(@Autowired AppUserDAO appUserDAO) {
+    public Registration() {
 
-        this.appUserDAO = appUserDAO;
         encoder = new BCryptPasswordEncoder();
     }
 
     public String handleData(Map<String, String> data) {
 
         AppUser user;
-        user = appUserDAO.getByUsername(data.get("username"));
+        user = appUserRepository.findByUsername(data.get("username"));
         if (user != null)
             return "User exists";
-        user = appUserDAO.getByEmail(data.get("email"));
+        user = appUserRepository.findByEmail(data.get("email"));
         if (user != null)
             return "Email already registered";
         String password = data.get("password");
@@ -38,16 +39,11 @@ public class Registration {
             return "Invalid email";
         if (data.get("username").equals(""))
             return "Invalid username";
-        user = new AppUser(
-                0,
-                data.get("email"),
-                null,
-                data.get("username"),
-                (byte)1,
-                encoder.encode(data.get("password")),
-                null
-        );
-        appUserDAO.insert(user);
+        user = new AppUser();
+        user.setEmail(data.get("email"));
+        user.setUsername(data.get("username"));
+        user.setPassword(encoder.encode(data.get("password")));
+        appUserRepository.save(user);
         return null;
     }
 }
