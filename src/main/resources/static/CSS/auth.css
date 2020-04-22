@@ -5,8 +5,9 @@
 }
 
 #auth-send-button {
+    font-size: medium;
     display: block;
-    margin: 0 auto;
+    margin: 1em auto;
     width: 50%;
 }
 

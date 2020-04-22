@@ -1,4 +1,4 @@
-package com.zman.znetwork.models;
+package com.zman.znetwork.auth;
 
 import com.zman.znetwork.models.AppUser;
 import org.springframework.security.core.GrantedAuthority;

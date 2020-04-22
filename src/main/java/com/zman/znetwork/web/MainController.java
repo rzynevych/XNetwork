@@ -53,6 +53,12 @@ public class MainController {
         return "friends";
     }
 
+    private synchronized void insertFriend(int id1, int id2) {
+
+        if (!friendshipRepository.existsFriendship(id1,id2))
+            friendshipRepository.save(new Friendship(id1, id2));
+    }
+
     @PostMapping("/friends")
     public ResponseEntity<String> friendsHandler(@RequestBody String json) {
         AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
@@ -64,9 +70,9 @@ public class MainController {
         if (target.equals("friend-handling")) {
             String action = jsonObject.getString("action");
             if (action.equals("Add"))
-                friendshipRepository.save(new Friendship(appUser.getUserID(), jsonObject.getInt("id")));
+                insertFriend(appUser.getUserID(), jsonObject.getInt("id"));
             else if (action.equals("Remove"))
-                friendshipRepository.delete(new Friendship(appUser.getUserID(), jsonObject.getInt("id")));
+                friendshipRepository.deleteByUsrIDAndFriendID(appUser.getUserID(), jsonObject.getInt("id"));
             response.put("result", "ok");
             response.put("action", action);
         } else if (target.equals("load")) {
@@ -83,7 +89,7 @@ public class MainController {
             users = friendRepository.getUsersByQuery(jsonObject.getString("query") + "%", appUser.getUserID(), 0);
             JSONArray jsonUsers = jsonGenerator.generateUsersArray(users);
             response.put("result", "ok");
-            response.put("users", jsonUsers);
+            response.put("items", jsonUsers);
         } else
             response.put("error", "Unknown target");
         return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(response.toString());

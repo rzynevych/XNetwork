@@ -14,7 +14,7 @@ public interface FriendRepository extends CrudRepository<Friend, Integer> {
     public List<Friend> getFriendsForUser(int userID, int offset);
 
     @Query(value = "select userid, email, reg_date, username, validate, password, last_login, friendid AS friend from app_user left join " +
-            "(select * from friendship where usrid=?2) t1 on t1.friendid=app_user.userid WHERE NOT userid=?2 " +
-            "AND (username LIKE ?1 OR email LIKE ?1) LIMIT ?3, 50", nativeQuery = true)
+            "(select * from friendship where usrid=?2) t1 on t1.friendid=app_user.userid " +
+            "WHERE (username LIKE ?1 OR email LIKE ?1) LIMIT ?3, 50", nativeQuery = true)
     public List<Friend> getUsersByQuery(String query, int user_id, int offset);
 }

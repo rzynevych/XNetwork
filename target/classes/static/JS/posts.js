@@ -9,11 +9,16 @@ if (form != null) {
 let container = document.getElementById("messages-container");
 let offset = 0;
 let timerId = 0;
+
 loadItems({
     target : "load",
     location : window.location.pathname,
     offset : offset
-},"beforeend", generateMessage, null)
+},"beforeend", generateMessage, json => {
+    offset += 50;
+    if (json.items.length < 50)
+        offset = -1;
+});
 
 
 container.onscroll = function () {
@@ -27,7 +32,11 @@ container.onscroll = function () {
         offset : offset
     };
     if (last.getBoundingClientRect().top - container.getBoundingClientRect().bottom < 10)
-        timerId = setTimeout(loadItems, 1000, payload, "beforeend", generateMessage, null);
+        timerId = setTimeout(loadItems, 1000, payload, "beforeend", generateMessage, json => {
+            offset += 50;
+            if (json.items.length < 50)
+                offset = -1;
+        });
 };
 
 function sendMessageHandler() {

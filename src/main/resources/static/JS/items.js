@@ -1,4 +1,4 @@
-function loadItems(payload, position, generator, first) {
+function loadItems(payload, position, itemGenerator, callback) {
     fetch(url,
         {
             method: "POST",
@@ -6,18 +6,13 @@ function loadItems(payload, position, generator, first) {
         }).then(response => response.json()).then(json => {
         if (json.result == "ok") {
             for (let item of json.items) {
-                container.insertAdjacentElement(position, generateMessage(item));
+                container.insertAdjacentElement(position, itemGenerator(item));
             }
-            if (first && first.getBoundingClientRect().top > 100)
-                container.scrollTo(0, first.getBoundingClientRect().top - container.getBoundingClientRect().top);
-            offset += 50;
-            if (json.items.length < 50)
-                offset = -1;
+            callback(json);
         }
         else
             console.log(json.error);
     }).catch(console.log);
-    timerId = 0;
 }
 
 function generateChat(json) {

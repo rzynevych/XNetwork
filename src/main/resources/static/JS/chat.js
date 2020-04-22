@@ -7,14 +7,18 @@ let input = form.querySelector(".input-message-1");
 let container = document.getElementById("messages-container");
 let offset = 0;
 let timerId = 0;
+let updating = false;
+
 loadItems({
     target : "load",
     user_id : urlParams.get("id"),
     offset : offset
-},"afterbegin", generateMessage, null)
-container.scrollTo(0, container.scrollHeight);
-
-let updating = false;
+},"afterbegin", generateMessage, json => {
+    container.scrollTo(0, container.scrollHeight);
+    offset += 50;
+    if (json.items.length < 50)
+        offset = -1;
+});
 
 container.onscroll = function () {
     if (timerId != 0 || offset < 0)
@@ -28,13 +32,18 @@ container.onscroll = function () {
         offset : offset
     };
     if (container.getBoundingClientRect().top - first.getBoundingClientRect().top < 10)
-        timerId = setTimeout(loadItems, 1000, payload, "afterbegin", generateMessage, first);
+        timerId = setTimeout(loadItems, 1000, payload, "afterbegin", generateMessage, json => {
+            if (first.getBoundingClientRect().top > 100)
+                container.scrollTo(0, first.getBoundingClientRect().top - container.getBoundingClientRect().top);
+            if (json.items.length < 50)
+                offset = -1;
+            timerId = 0;
+        });
 };
 
 function sendMessageHandler() {
     if (updating) {
-        setTimeout(sendMessageHandler, 100);
-        return ;
+        return false;
     }
     if (input.value == "")
         return false;
@@ -72,23 +81,10 @@ function updateMessages() {
         last : last.id
     };
     updating = true;
-    fetch(url,
-        {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(payload)
-        }).then(response => response.json()).then(json => {
-        if (json.result == "ok") {
-            for (let message of json.items) {
-                container.insertAdjacentElement("beforeend", generateMessage(message));
-            }
-            if (json.items.length > 0)
-                container.scrollTo(0, container.scrollHeight);
-            updating = false;
-        } else
-            console.log(json.error);
-    }).catch(error => console.log(error));
-    setTimeout(updateMessages, 1000);
+    loadItems(payload, "beforeend", generateMessage, json => {
+        if (json.items.length > 0)
+            container.scrollTo(0, container.scrollHeight);
+        updating = false;
+        setTimeout(updateMessages, 1000);
+    })
 }

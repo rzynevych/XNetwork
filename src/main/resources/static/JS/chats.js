@@ -14,5 +14,9 @@ container.onscroll = function () {
         offset : offset
     };
     if (last.getBoundingClientRect().top - container.getBoundingClientRect().bottom < 10)
-        timerId = setTimeout(loadItems, 1000, payload, "beforeend", generateChat(), null);
+        timerId = setTimeout(loadItems, 1000, payload, "beforeend", generateChat, json => {
+            offset += 50;
+            if (json.items.length < 50)
+                offset = -1;
+        });
 };

@@ -82,6 +82,13 @@
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
 
+<!--        email validation-->
+        <dependency>
+            <groupId>commons-validator</groupId>
+            <artifactId>commons-validator</artifactId>
+            <version>1.6</version>
+        </dependency>
+
 <!--        security-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

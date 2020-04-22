@@ -1,6 +1,5 @@
 package com.zman.znetwork.auth;
 
-import com.zman.znetwork.models.UserInfo;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 

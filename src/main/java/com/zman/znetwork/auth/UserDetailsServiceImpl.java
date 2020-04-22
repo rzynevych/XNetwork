@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.zman.znetwork.models.AppUser;
-import com.zman.znetwork.models.UserInfo;
 import com.zman.znetwork.repos.AppUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;

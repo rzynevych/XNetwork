@@ -2,6 +2,7 @@ package com.zman.znetwork.auth;
 
 import com.zman.znetwork.models.AppUser;
 import com.zman.znetwork.repos.AppUserRepository;
+import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -14,10 +15,12 @@ public class Registration {
     @Autowired
     private AppUserRepository appUserRepository;
     private BCryptPasswordEncoder encoder;
+    private EmailValidator emailValidator;
 
     public Registration() {
 
         encoder = new BCryptPasswordEncoder();
+        emailValidator = EmailValidator.getInstance();
     }
 
     public String handleData(Map<String, String> data) {
@@ -35,7 +38,7 @@ public class Registration {
             return "Passwords do not match";
         if (password.equals(""))
             return "Password is empty";
-        if (data.get("email").equals(""))
+        if (!emailValidator.isValid(data.get("email")))
             return "Invalid email";
         if (data.get("username").equals(""))
             return "Invalid username";

@@ -16,22 +16,10 @@ if (searchForm != undefined) {
             target: "search",
             query: document.getElementById("input_query").value
         };
-        fetch(url,
-            {
-                method: "POST",
-                body: JSON.stringify(payload)
-            }).then(response => response.json()).then(json => {
-            console.log(JSON.stringify(json));
-            let items = container.querySelectorAll(".user");
-            for (let i = 0; i < items.length; i++)
-                container.removeChild(items[i]);
-            if (json.result == "ok") {
-                for (let user of json.users) {
-                    container.insertAdjacentElement("beforeend", generateUser(user));
-                }
-            } else
-                console.log(json.error);
-        }).catch(console.log);
+        let items = container.querySelectorAll(".user");
+        for (let i = 0; i < items.length; i++)
+            container.removeChild(items[i]);
+        loadItems(payload, "beforeend", generateUser, () => {});
         return false;
     };
 }
@@ -48,11 +36,14 @@ container.onscroll = function () {
         offset : offset
     };
     if (last.getBoundingClientRect().top - container.getBoundingClientRect().bottom < 10)
-        timerId = setTimeout(loadItems, 1000, payload, "beforeend", generateUser, null);
+        timerId = setTimeout(loadItems, 1000, payload, "beforeend", generateUser, json => {
+            offset += 50;
+            if (json.items.length < 50)
+                offset = -1;
+        });
 };
 
 function addFriend() {
-    console.log("addFriend");
     let button = this.querySelector(".users-form-button");
     let id_input = this.querySelector(".id-input");
     let action_input = this.querySelector(".action-input");
