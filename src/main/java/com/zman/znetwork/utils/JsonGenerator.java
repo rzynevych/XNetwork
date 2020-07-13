@@ -81,7 +81,7 @@ public class JsonGenerator {
             time.append(diff).append(" hour");
         } else if ((diff = TimeUnit.DAYS.convert(millis, TimeUnit.MILLISECONDS)) < 7) {
             time.append(diff).append(" day");
-        } else if ((diff = TimeUnit.DAYS.convert(millis, TimeUnit.MILLISECONDS) / 7) < 4) {
+        } else if ((diff = TimeUnit.DAYS.convert(millis, TimeUnit.MILLISECONDS) / 7) < 5) {
             time.append(diff).append(" week");
         } else if ((diff = TimeUnit.DAYS.convert(millis, TimeUnit.MILLISECONDS) / 30) < 12) {
             time.append(diff).append(" month");
