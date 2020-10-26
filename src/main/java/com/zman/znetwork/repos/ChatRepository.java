@@ -13,7 +13,7 @@ public interface ChatRepository extends CrudRepository<Chat, Long> {
 
     @Transactional
     @Modifying
-    @Query("update Chat c set c.lastUsed=CURRENT_DATE where (c.id1=?1 and c.id2=?2) or (c.id1=?2 and c.id2=?1)")
+    @Query("update Chat c set c.lastUsed=CURRENT_TIMESTAMP where (c.id1=?1 and c.id2=?2) or (c.id1=?2 and c.id2=?1)")
     void updateChat(int id1, int id2);
 
 }

@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 @Controller
 public class PostsController {
 
