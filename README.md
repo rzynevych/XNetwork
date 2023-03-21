@@ -1,4 +1,4 @@
-# ZNetwork
+# XNetwork
 A simple social network on Spring Boot framework
 
 ## Features
