@@ -3,7 +3,7 @@ A simple social network on Spring Boot framework
 
 ## Features
 * Writing posts
-* Adding friends
+* Subscription to users
 * Sending direct messages
 * Interactive interface
 
@@ -13,8 +13,8 @@ or build and run it from command line using maven.
 To run from command line execute following commands:
 
 ```
-mvn package
 mvn inslall
+mvn package
 mvn spring-boot:run
 ```
 
@@ -25,10 +25,5 @@ Dump of test database is znetwork1.sql on branch master, and znetwork.sql on bra
 
 |Email|Password|      
 |---|---|
-|ruslanzinewich@gmail.com|12345|
-|spad20@yandex.ru|123|
-|cool@cool.com|1|
 |example@example.com|1|
-|xman@xxx.com|1|
 |asdf@asdf.com|1|
-|ex@ex.com|1|
