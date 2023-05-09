@@ -1,15 +1,15 @@
 package com.rz.xnetwork.auth;
 
 import java.io.IOException;
-
+import java.util.Date;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -22,11 +22,14 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import com.rz.xnetwork.models.AppUser;
 
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    private final String CORS_ORIGIN = "http://192.168.1.65:3000";
 
     @Autowired
     UserDetailsServiceImpl userDetailsService;
@@ -43,13 +46,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        // http.cors();
         http.csrf().disable();
-        http.headers().frameOptions().disable(); // ВАЖНО
-        http.authorizeRequests().antMatchers("/", "welcome", "/login", "/signup", "/auth_check").permitAll()
-            .anyRequest().hasRole("USER");
+        http.headers().frameOptions().disable();
+        http.authorizeRequests().antMatchers("/", "welcome", "/login", "/register", "/authCheck").permitAll()
+            .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+        .anyRequest().hasRole("USER");
     
         http.authorizeRequests().and().formLogin()
-                .loginProcessingUrl("/j_spring_security_check")
+                .loginProcessingUrl("/auth")
                 .usernameParameter("email")
                 .passwordParameter("password")
                 .successHandler(successHandler())
@@ -65,11 +70,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
           @Override
           public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
             httpServletResponse.setStatus(200);
-            httpServletResponse.addHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+            UserInfo userInfo = (UserInfo) authentication.getPrincipal();
+            AppUser user = userInfo.getAppUser();
+            user.setLastLogin(new Date());
+            
+            httpServletResponse.addHeader("Access-Control-Allow-Origin", CORS_ORIGIN);
             httpServletResponse.addHeader("Access-Control-Allow-Credentials", "true");
             httpServletResponse.addHeader("Content-Type", "application/json");
             httpServletResponse.getWriter().append("{\"status\" : true}");
-
           }
         };
       }
@@ -88,7 +96,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new AccessDeniedHandler() {
           @Override
           public void handle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AccessDeniedException e) throws IOException, ServletException {
-            httpServletResponse.addHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+            httpServletResponse.addHeader("Access-Control-Allow-Origin", CORS_ORIGIN);
             httpServletResponse.addHeader("Access-Control-Allow-Credentials", "true");
             httpServletResponse.getWriter().append("Access denied");
             httpServletResponse.setStatus(403);
@@ -100,6 +108,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new AuthenticationEntryPoint() {
           @Override
           public void commence(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
+            httpServletResponse.addHeader("Access-Control-Allow-Origin", CORS_ORIGIN);
+            httpServletResponse.addHeader("Access-Control-Allow-Credentials", "true");
             httpServletResponse.getWriter().append("Not authenticated");
             httpServletResponse.setStatus(401);
           }

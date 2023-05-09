@@ -1,21 +1,73 @@
 package com.rz.xnetwork.models;
 
 import javax.persistence.*;
+
+import com.rz.xnetwork.dto.AppUserDto;
+import com.rz.xnetwork.dto.UserListElem;
+
 import java.util.Date;
 
 @Entity
+@NamedNativeQueries({
+    @NamedNativeQuery(
+        name = "getUsersByQuery",
+        query = "select u.userid as userid, email, username, last_login , reg_date, "
+            + "case when not t1.subscriberid = NULL then 1 else 0 end as subscribed, "
+            + "case when not t1.subscriberid = NULL then 1 else 0 end as in_subscriptions "
+            + "from app_user u left join (select * from subscription where userid=?2) t1 "
+            + "on t1.subscriberid=u.userid "
+            + "WHERE (username LIKE ?1 OR email LIKE ?1 ) LIMIT ?3, 50",
+        resultSetMapping = "UserListElem"
+    ),
+    @NamedNativeQuery(
+        name = "getChatUsers",
+        query = "select u.userid as userid, email, username, last_login , reg_date "
+            + "from app_user u INNER JOIN chat c ON (u.userid=c.userid1 OR u.userid=c.userid2) "
+            + "WHERE (c.userid1=?1 OR c.userid2=?1) ORDER BY c.last_used DESC LIMIT ?2, 50",
+            resultSetMapping = "AppUserDto"
+    )
+})
+@SqlResultSetMappings({
+    @SqlResultSetMapping(
+        name = "UserListElem",
+        classes = @ConstructorResult(
+            targetClass = UserListElem.class,
+            columns = {
+                @ColumnResult(name = "userID", type = Long.class),
+                @ColumnResult(name = "email", type = String.class),
+                @ColumnResult(name = "username", type = String.class),
+                @ColumnResult(name = "last_login", type = Date.class),
+                @ColumnResult(name = "reg_date", type = Date.class),
+                @ColumnResult(name = "subscribed", type = Boolean.class),
+                @ColumnResult(name = "in_subscriptions", type = Boolean.class)
+            }
+        )
+    ),
+    @SqlResultSetMapping(
+        name = "AppUserDto",
+        classes = @ConstructorResult(
+            targetClass = AppUserDto.class,
+            columns = {
+                @ColumnResult(name = "userID", type = Long.class),
+                @ColumnResult(name = "email", type = String.class),
+                @ColumnResult(name = "username", type = String.class),
+                @ColumnResult(name = "last_login", type = Date.class),
+                @ColumnResult(name = "reg_date", type = Date.class)
+            }
+        )
+    )
+})
 public class AppUser {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private Integer userID;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long userID;
     private String email;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date regDate;
     private String username;
-    private Byte validate;
     private String password;
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastLogin;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date regDate;
 
     public Date getLastLogin() {
         return lastLogin;
@@ -25,11 +77,11 @@ public class AppUser {
         this.lastLogin = lastLogin;
     }
 
-    public Integer getUserID() {
+    public Long getUserID() {
         return userID;
     }
 
-    public void setUserID(Integer userID) {
+    public void setUserID(Long userID) {
         this.userID = userID;
     }
 
@@ -55,14 +107,6 @@ public class AppUser {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public Byte getValidate() {
-        return validate;
-    }
-
-    public void setValidate(Byte validate) {
-        this.validate = validate;
     }
 
     public String getPassword() {

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.rz.xnetwork.models.AppUser;
 import com.rz.xnetwork.repos.AppUserRepository;
 
+import java.util.Date;
 import java.util.Map;
 
 @Service
@@ -34,19 +35,17 @@ public class Registration {
         if (user != null)
             return "Email already registered";
         String password = data.get("password");
-        String passwordRepeat = data.get("password_repeat");
-        if (!password.equals(passwordRepeat))
-            return "Passwords do not match";
         if (password.equals(""))
             return "Password is empty";
         if (!emailValidator.isValid(data.get("email")))
             return "Invalid email";
         if (data.get("username").equals(""))
-            return "Invalid username";
+            return "Empty username";
         user = new AppUser();
         user.setEmail(data.get("email"));
         user.setUsername(data.get("username"));
         user.setPassword(encoder.encode(data.get("password")));
+        user.setRegDate(new Date());
         appUserRepository.save(user);
         return null;
     }
