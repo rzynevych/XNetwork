@@ -10,23 +10,22 @@ import lombok.Setter;
 import java.util.Date;
 
 @Entity
-@Getter
-@Setter
+@Getter @Setter
 @NoArgsConstructor
 public class Message {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long messageID;
-    private Long senderID;
+    private Long messageId;
+    private Long senderId;
     private Long receiver;
     private String senderName;
     private String text;
     @Temporal(TemporalType.TIMESTAMP)
     private Date date;
 
-    public Message(Long senderID, Long receiver, String senderName, String text) {
-        this.senderID = senderID;
+    public Message(Long senderId, Long receiver, String senderName, String text) {
+        this.senderId = senderId;
         this.receiver = receiver;
         this.senderName = senderName;
         this.text = text;

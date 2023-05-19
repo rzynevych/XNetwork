@@ -1,23 +1,28 @@
 package com.rz.xnetwork.models;
 
 import javax.persistence.*;
+
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Date;
 
 @Entity
+@Getter @Setter
 public class Subscription {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long subscriptionID;
-    Long subscriberID;
-    Long userID;
+    private Long subscriptionId;
+    private Long subscriberId;
+    private Long userId;
     @Temporal(TemporalType.TIMESTAMP)
-    Date date;
+    private Date date;
 
     public Subscription() {}
 
-    public Subscription(Long userID, Long subscriberID) {
-        this.userID = userID;
-        this.subscriberID = subscriberID;
+    public Subscription(Long userId, Long subscriberId) {
+        this.userId = userId;
+        this.subscriberId = subscriberId;
     }
 }

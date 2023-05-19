@@ -1,40 +1,93 @@
 package com.rz.xnetwork.services;
 
-import javax.transaction.Transactional;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
+import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.rz.xnetwork.dto.AppUserDto;
-import com.rz.xnetwork.mappers.AppUserMapper;
+import com.rz.xnetwork.auth.UserHandler;
+import com.rz.xnetwork.dto.UserListElem;
 import com.rz.xnetwork.models.AppUser;
+import com.rz.xnetwork.models.Subscription;
 import com.rz.xnetwork.repos.AppUserRepository;
-
+import com.rz.xnetwork.repos.SubscriptionRepository;
+import com.rz.xnetwork.utils.Status;
 
 @Service
 @Transactional
 public class AppUserService {
+    
+    @Autowired
+    private AppUserRepository appUserRepository;
 
     @Autowired
-    private AppUserRepository userRepo;
+    private SubscriptionRepository subscriptionRepository;
+    
+    private BCryptPasswordEncoder encoder;
+    private EmailValidator emailValidator;
 
-    // @Autowired
-    // private AppUserMapper mapper;
+    public AppUserService() {
 
-    // public AppUserDto findById(Long id) {
-    //     AppUser user = userRepo.findByUserID(id);
-    //     return mapper.toDto(user);
-    // }
+        encoder = new BCryptPasswordEncoder();
+        emailValidator = EmailValidator.getInstance();
+    }
 
-    // public List<UserDto> findByName(String name) {
-    //     List<User> users = userRepo.findByName(name);
+    public String registerUser(Map<String, String> data) {
 
-    //     return mapper.toDto(users);
-    // }
+        AppUser user;
+        user = appUserRepository.findByUsername(data.get("username"));
+        if (user != null)
+            return "User exists";
+        user = appUserRepository.findByEmail(data.get("email"));
+        if (user != null)
+            return "Email already registered";
+        String password = data.get("password");
+        if (password.equals(""))
+            return "Password is empty";
+        if (!emailValidator.isValid(data.get("email")))
+            return "Invalid email";
+        if (data.get("username").equals(""))
+            return "Empty username";
+        user = new AppUser();
+        user.setEmail(data.get("email"));
+        user.setUsername(data.get("username"));
+        user.setPassword(encoder.encode(data.get("password")));
+        user.setRegDate(new Date());
+        appUserRepository.save(user);
+        return null;
+    }
 
-    // public List<UserDto> search(String name, String surname) {
-    //     List<User> users = userRepo.findAll(UserSpecificationUtil.specByParams(name, surname));
+    public List<UserListElem> getSubscriberList(Integer offset) {
+        AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
+        List<UserListElem> users = appUserRepository.getSubscribersForUser(appUser.getUserId(), offset);
+        return users;
+    }
 
-    //     return mapper.toDto(users);
-    // }
+    public Status addSubscription(Long userId) {
+        
+        AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
+        if (subscriptionRepository.existsSubscription(appUser.getUserId(), userId))
+            return new Status(false);
+        subscriptionRepository.save(new Subscription(appUser.getUserId(), userId));
+        return new Status(true);
+    }
+
+    public Status removeSubscription(Long userId) {
+        
+        AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
+        subscriptionRepository.deleteByUsrIdAndSubId(appUser.getUserId(), userId);
+        return new Status(true);
+    }
+
+    public List<UserListElem> getUsersByQuery(String query) {
+
+        AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
+        List<UserListElem> users = appUserRepository.getUsersByQuery(query + "%", appUser.getUserId(), 0);
+        return users;
+    }
 }

@@ -14,10 +14,10 @@ public class UserListElem {
     private Boolean inSubscriptions;
 
 
-    public UserListElem(Long userID, String email, String username, Date lastLogin, Date regDate, 
+    public UserListElem(Long userId, String email, String username, Date lastLogin, Date regDate, 
         Boolean subscribed, Boolean inSubscriptions) {
         
-        user = new AppUserDto(userID, email, username, lastLogin, regDate);
+        user = new AppUserDto(userId, email, username, lastLogin, regDate);
         this.subscribed = subscribed;
         this.inSubscriptions = inSubscriptions;
     }

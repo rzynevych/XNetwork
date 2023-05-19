@@ -5,8 +5,8 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class SendMessageDTO {
+public class SendMessageDto {
     
-    Long converserID;
+    Long converserId;
     String text;
 }

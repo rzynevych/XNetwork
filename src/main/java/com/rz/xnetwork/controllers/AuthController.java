@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rz.xnetwork.auth.Registration;
 import com.rz.xnetwork.auth.UserHandler;
 import com.rz.xnetwork.mappers.AppUserMapper;
 import com.rz.xnetwork.repos.AppUserRepository;
+import com.rz.xnetwork.services.AppUserService;
 import com.rz.xnetwork.utils.Status;
 
 import java.util.HashMap;
@@ -23,7 +23,7 @@ import java.util.Map;
 public class AuthController {
 
     @Autowired
-    private Registration registration;
+    private AppUserService appUserService;
 
     @Autowired
     private AppUserRepository appUserRepository;
@@ -53,27 +53,11 @@ public class AuthController {
     @PostMapping("/register")
     public Status signUpHandler(@RequestParam Map<String, String> params) {
 
-        String message = registration.handleData(params);
+        String message = appUserService.registerUser(params);
         if (message != null) {
             return new Status(false);
         }
         return new Status(true);
     }
 
-    // @GetMapping("/account")
-    // public String account(@RequestParam Long id) {
-
-    //     AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
-    //     AppUser user;
-    //     if (id == 0)
-    //         user = appUser;
-    //     else
-    //         user = appUserRepository.findByUserID(id);
-    //     if (user == null) {
-    //         return "user";
-    //     }
-    //     if (user.getUserID() == appUser.getUserID())
-    //         return "user";
-    //     return "";
-    // }
 }
