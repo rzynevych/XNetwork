@@ -21,6 +21,6 @@ public interface ChatRepository extends JpaRepository<Chat, Long> {
     void updateChat(Long useruserID1, Long useruserID2);
 
     @Query(name = "getChatList", nativeQuery = true)
-    public List<ChatListElem> getChatList(Long userID, int offset);
+    public List<ChatListElem> getChatList(Long userID, int offset, int limit);
 
 }

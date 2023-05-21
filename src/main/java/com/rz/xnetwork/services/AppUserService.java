@@ -62,9 +62,15 @@ public class AppUserService {
         return null;
     }
 
-    public List<UserListElem> getSubscriberList(Integer offset) {
+    public List<UserListElem> getSubscriberList(int offset, int limit) {
         AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
-        List<UserListElem> users = appUserRepository.getSubscribersForUser(appUser.getUserId(), offset);
+        List<UserListElem> users = appUserRepository.getSubscribersForUser(appUser.getUserId(), offset, limit);
+        return users;
+    }
+
+    public List<UserListElem> getSubscriptionList(int offset, int limit) {
+        AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
+        List<UserListElem> users = appUserRepository.getSubscribersForUser(appUser.getUserId(), offset, limit);
         return users;
     }
 
@@ -84,10 +90,10 @@ public class AppUserService {
         return new Status(true);
     }
 
-    public List<UserListElem> getUsersByQuery(String query) {
+    public List<UserListElem> getUsersByQuery(String query, int offset, int limit) {
 
         AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
-        List<UserListElem> users = appUserRepository.getUsersByQuery(query + "%", appUser.getUserId(), 0);
+        List<UserListElem> users = appUserRepository.getUsersByQuery(query + "%", appUser.getUserId(), offset, limit);
         return users;
     }
 }

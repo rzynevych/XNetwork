@@ -10,10 +10,10 @@ import java.util.List;
 
 public interface MessageRepository extends JpaRepository<Message, Integer> {
 
-    @Query(value = "SELECT message_id,sender_id,receiver,sender_name,text,date " +
-            "FROM message m INNER JOIN subscription ON s.subscriber_id = m.sender_id WHERE s.user_id=?1 " +
-            "AND receiver = 0 ORDER BY message_id DESC LIMIT ?2, 50", nativeQuery = true)
-    List<Message> selectPosts(long userID, int offset);
+    @Query(value = "SELECT message_id, sender_id, receiver, sender_name, text, m.date AS date " +
+            "FROM message m INNER JOIN subscription s ON m.sender_id = s.user_id WHERE s.subscriber_id=?1 " +
+            "AND receiver = 0 ORDER BY message_id DESC LIMIT ?2, ?3", nativeQuery = true)
+    List<Message> selectPosts(long userID, int offset, int limit);
 
     @Query(value = "select m from Message m where m.senderId = ?1 AND m.receiver = 0")
     List<Message> selectOwnPosts(Long userID, Pageable pageable);

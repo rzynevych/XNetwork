@@ -9,8 +9,8 @@ import com.rz.xnetwork.models.Subscription;
 
 public interface SubscriptionRepository extends JpaRepository<Subscription, Long> {
 
-    @Query( value = "select case when count(f)> 0 then true else false end from Subscription s where (s.subscriberId=?1 and s.userId=?2)")
-    boolean existsSubscription(Long userID1, Long userID2);
+    @Query( value = "select case when count(s)> 0 then true else false end from Subscription s where (s.subscriberId=?1 and s.userId=?2)")
+    Boolean existsSubscription(Long userID1, Long userID2);
 
     @Transactional
     @Modifying

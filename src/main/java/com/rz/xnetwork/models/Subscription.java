@@ -21,8 +21,8 @@ public class Subscription {
 
     public Subscription() {}
 
-    public Subscription(Long userId, Long subscriberId) {
-        this.userId = userId;
+    public Subscription(Long subscriberId, Long userId) {
         this.subscriberId = subscriberId;
+        this.userId = userId;
     }
 }

@@ -46,6 +46,12 @@ public class MessageService {
         return posts;
     }
 
+    public List<Message> getPosts(int offset, int limit) {
+        AppUser user = UserHandler.getAuthorizedUser().getAppUser();
+        List<Message> posts = messageRepository.selectPosts(user.getUserId(), offset, limit);
+        return posts;
+    }
+
     public Message uploadPost(SendMessageDto sendMessageDTO)
     {
         AppUser user = UserHandler.getAuthorizedUser().getAppUser();
@@ -53,10 +59,10 @@ public class MessageService {
         return messageRepository.save(message);
     }
 
-    public List<ChatListElem> getChatList(int offset) {
+    public List<ChatListElem> getChatList(int offset, int limit) {
        
         AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
-        List<ChatListElem> users = chatRepository.getChatList(appUser.getUserId(), offset);
+        List<ChatListElem> users = chatRepository.getChatList(appUser.getUserId(), offset, limit);
         return users;
     }
 

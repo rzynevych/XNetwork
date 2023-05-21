@@ -14,11 +14,12 @@ import java.util.Date;
     @NamedNativeQuery(
         name = "getUsersByQuery",
         query = "SELECT u.user_id as user_id, email, username, last_login , reg_date, "
-        + "CASE WHEN NOT t1.subscriber_id = NULL THEN 1 ELSE 0 END AS subscribed, "
-        + "CASE WHEN NOT t1.subscriber_id = NULL THEN 1 ELSE 0 END AS in_subscriptions "
-        + "FROM app_user u LEFT JOIN (SELECT * FROM subscription WHERE user_id=?2) t1 "
-        + "ON t1.subscriber_id=u.user_id "
-        + "WHERE (username LIKE ?1 OR email LIKE ?1 ) LIMIT ?3, 50",
+        + "CASE WHEN stab.subscription_id IS NOT NULL THEN 1 ELSE 0 END AS subscribed, "
+        + "CASE WHEN instab.subscription_id IS NOT NULL THEN 1 ELSE 0 END AS in_subscriptions "
+        + "FROM app_user u "
+		+ "LEFT JOIN (SELECT * FROM subscription WHERE user_id=?2) stab ON stab.subscriber_id=u.user_id "
+        + "LEFT JOIN (SELECT * FROM subscription WHERE subscriber_id=?2) instab ON instab.user_id=u.user_id "
+        + "WHERE (username LIKE ?1 OR email LIKE ?1 ) LIMIT ?3, ?4",
         resultSetMapping = "UserListElem"
     )
 })

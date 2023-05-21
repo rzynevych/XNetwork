@@ -17,7 +17,7 @@ import java.util.Date;
         + "UNION ALL "
         + "SELECT chat_id, user_id as converser_id, username as converser_name, last_used "
         + "FROM chat c INNER JOIN app_user u ON (u.user_id=c.user_id1) WHERE (c.user_id2=?1) AND NOT (c.user_id1 = c.user_id2) "
-        + "ORDER BY last_used DESC LIMIT ?2, 50",
+        + "ORDER BY last_used DESC LIMIT ?2, ?3",
         resultSetMapping = "ChatListElem"
 )
 @SqlResultSetMapping(

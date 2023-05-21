@@ -36,6 +36,12 @@ public class MessagesController {
         return messageService.getOwnPosts(Integer.parseInt(page), Integer.parseInt(size));
     }
 
+    @GetMapping("/getPosts")
+    public List<Message> getOPosts(@RequestParam String offset, @RequestParam String limit) {
+        
+        return messageService.getPosts(Integer.parseInt(offset), Integer.parseInt(limit));
+    }
+
     @PostMapping("/uploadPost")
     public Message uploadPost(@RequestBody SendMessageDto sendMessageDTO)
     {
@@ -43,8 +49,8 @@ public class MessagesController {
     }
 
     @GetMapping("getChatList")
-    public List<ChatListElem> getChatList(@RequestParam String offset) {
-        return messageService.getChatList(Integer.parseInt(offset));
+    public List<ChatListElem> getChatList(@RequestParam String offset, @RequestParam String limit) {
+        return messageService.getChatList(Integer.parseInt(offset), Integer.parseInt(limit));
     }
 
     @GetMapping("/getChatMessages")
