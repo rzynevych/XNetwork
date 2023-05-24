@@ -1,4 +1,4 @@
-package com.rz.xnetwork.auth;
+package com.rz.xnetwork.security;
 
 import java.util.ArrayList;
 import java.util.List;

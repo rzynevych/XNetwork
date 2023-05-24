@@ -1,4 +1,4 @@
-package com.rz.xnetwork.utils;
+package com.rz.xnetwork.config;
 
 public class Config {
 

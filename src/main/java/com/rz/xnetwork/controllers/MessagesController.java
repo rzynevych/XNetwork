@@ -1,6 +1,5 @@
 package com.rz.xnetwork.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
@@ -11,35 +10,35 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rz.xnetwork.dto.ChatListElem;
 import com.rz.xnetwork.dto.SendMessageDto;
+import com.rz.xnetwork.dto.WebSocketInputMessage;
+import com.rz.xnetwork.dto.WebSocketOutputMessage;
 import com.rz.xnetwork.models.Message;
 import com.rz.xnetwork.services.MessageService;
-import com.rz.xnetwork.websockets.WebSocketInputMessage;
-import com.rz.xnetwork.websockets.WebSocketOutputMessage;
+
+import lombok.RequiredArgsConstructor;
 
 import java.security.Principal;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 public class MessagesController {
 
-    @Autowired
-    private MessageService messageService;
+    private final MessageService messageService;
 
-    @Autowired
-    private SimpMessagingTemplate simpMessagingTemplate;
+    private final SimpMessagingTemplate simpMessagingTemplate;
 
     @GetMapping("/getOwnPosts")
-    public List<Message> getOwnPosts(@RequestParam String page, @RequestParam String size) {
+    public List<Message> getOwnPosts(@RequestParam int page, @RequestParam int size) {
         
-        return messageService.getOwnPosts(Integer.parseInt(page), Integer.parseInt(size));
+        return messageService.getOwnPosts(page, size);
     }
 
     @GetMapping("/getPosts")
-    public List<Message> getOPosts(@RequestParam String offset, @RequestParam String limit) {
+    public List<Message> getOPosts(@RequestParam int page, @RequestParam int size) {
         
-        return messageService.getPosts(Integer.parseInt(offset), Integer.parseInt(limit));
+        return messageService.getPosts(page, size);
     }
 
     @PostMapping("/uploadPost")
@@ -48,23 +47,17 @@ public class MessagesController {
         return messageService.uploadPost(sendMessageDTO);
     }
 
-    @GetMapping("getChatList")
-    public List<ChatListElem> getChatList(@RequestParam String offset, @RequestParam String limit) {
-        return messageService.getChatList(Integer.parseInt(offset), Integer.parseInt(limit));
-    }
-
     @GetMapping("/getChatMessages")
-    public List<Message> getChatMessages(@RequestParam String converserID, 
-        @RequestParam String page, @RequestParam String size) {
+    public List<Message> getChatMessages(@RequestParam Long converserId, 
+        @RequestParam int page, @RequestParam int size) {
 
-        return messageService.getChatMessages(
-            Long.parseLong(converserID), Integer.parseInt(page), Integer.parseInt(size));
+        return messageService.getChatMessages(converserId, page, size);
     }
 
     @GetMapping("getNewMessages")
-    public List<Message> getNewMessages(@RequestParam String converserId, @RequestParam String lastMessageId) {
+    public List<Message> getNewMessages(@RequestParam Long converserId, @RequestParam Long lastMessageId) {
 
-        return messageService.getNewMessages(Long.parseLong(converserId), Long.parseLong(lastMessageId));
+        return messageService.getNewMessages(converserId, lastMessageId);
     }
 
     @PostMapping("uploadMessage")

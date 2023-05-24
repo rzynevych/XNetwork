@@ -1,13 +1,12 @@
-package com.rz.xnetwork.utils;
+package com.rz.xnetwork.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 public class Status {
     
     Boolean status;
+    String message;
 }

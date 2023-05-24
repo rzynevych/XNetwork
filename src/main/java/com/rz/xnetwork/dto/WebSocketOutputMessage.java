@@ -1,10 +1,9 @@
-package com.rz.xnetwork.websockets;
+package com.rz.xnetwork.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter @Setter
+@Data
 @AllArgsConstructor
 public class WebSocketOutputMessage {
     private String type;

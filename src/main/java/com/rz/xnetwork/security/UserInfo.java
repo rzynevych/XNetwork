@@ -1,4 +1,4 @@
-package com.rz.xnetwork.auth;
+package com.rz.xnetwork.security;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;

@@ -5,40 +5,34 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
-import com.rz.xnetwork.auth.UserHandler;
-import com.rz.xnetwork.dto.ChatListElem;
 import com.rz.xnetwork.dto.SendMessageDto;
+import com.rz.xnetwork.dto.WebSocketOutputMessage;
 import com.rz.xnetwork.models.AppUser;
 import com.rz.xnetwork.models.Chat;
 import com.rz.xnetwork.models.Message;
 import com.rz.xnetwork.repos.AppUserRepository;
 import com.rz.xnetwork.repos.ChatRepository;
 import com.rz.xnetwork.repos.MessageRepository;
-import com.rz.xnetwork.websockets.WebSocketOutputMessage;
+import com.rz.xnetwork.security.UserHandler;
+
+import lombok.RequiredArgsConstructor;
 
 
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class MessageService {
 
-    @Autowired
-    private AppUserRepository appUserRepository;
-
-    @Autowired
-    private MessageRepository messageRepository;
-
-    @Autowired
-    private ChatRepository chatRepository;
-
-    @Autowired
-    private SimpMessagingTemplate simpMessagingTemplate;
-
+    private final AppUserRepository appUserRepository;
+    private final MessageRepository messageRepository;
+    private final ChatRepository chatRepository;
+    private final SimpMessagingTemplate simpMessagingTemplate;
+    
     public List<Message> getOwnPosts(int page, int size) {
         AppUser user = UserHandler.getAuthorizedUser().getAppUser();
         List<Message> posts = messageRepository.selectOwnPosts(user.getUserId(),
@@ -46,9 +40,9 @@ public class MessageService {
         return posts;
     }
 
-    public List<Message> getPosts(int offset, int limit) {
+    public List<Message> getPosts(int page, int size) {
         AppUser user = UserHandler.getAuthorizedUser().getAppUser();
-        List<Message> posts = messageRepository.selectPosts(user.getUserId(), offset, limit);
+        List<Message> posts = messageRepository.selectPosts(user.getUserId(), PageRequest.of(page, size, Sort.by("messageId").descending()));
         return posts;
     }
 
@@ -59,19 +53,12 @@ public class MessageService {
         return messageRepository.save(message);
     }
 
-    public List<ChatListElem> getChatList(int offset, int limit) {
-       
-        AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
-        List<ChatListElem> users = chatRepository.getChatList(appUser.getUserId(), offset, limit);
-        return users;
-    }
-
     public List<Message> getChatMessages(Long converserID, int page, int size) {
         
         AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
         List<Message> messages = messageRepository.getMessagesForChat(
                 appUser.getUserId(), converserID, 
-                PageRequest.of(page, size, Sort.by("messageId").descending()));
+                PageRequest.of(page, size, Sort.by("messageId").ascending()));
         return messages;
     }
 
@@ -83,10 +70,10 @@ public class MessageService {
         return messages;
     }
 
-    public Message uploadMessage(SendMessageDto sendMessageDTO)
+    public Message uploadMessage(SendMessageDto sendMessageDto)
     {
         AppUser user = UserHandler.getAuthorizedUser().getAppUser();
-        Long converserID = sendMessageDTO.getConverserId();
+        Long converserID = sendMessageDto.getConverserId();
         AppUser converser = appUserRepository.findByUserId(converserID) ;
         if (chatRepository.existsChat(user.getUserId(), converserID))
             chatRepository.updateChat(user.getUserId(), converserID);
@@ -96,7 +83,7 @@ public class MessageService {
             user.getUserId(), 
             converserID, 
             user.getUsername(), 
-            sendMessageDTO.getText()
+            sendMessageDto.getText()
         );
         Message savedMessage =  messageRepository.save(message);
         WebSocketOutputMessage out = new WebSocketOutputMessage("message", user.getUserId()); 

@@ -1,10 +1,10 @@
-package com.rz.xnetwork.auth;
+package com.rz.xnetwork.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import com.rz.xnetwork.utils.Config;
+import com.rz.xnetwork.config.Config;
 
 @Configuration
 public class CorsConfigurer implements WebMvcConfigurer {
