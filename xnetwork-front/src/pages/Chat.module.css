@@ -1,0 +1,38 @@
+.chat__container {  
+    width: inherit;
+    height: 90%;
+}
+
+.items__container {
+    overflow-y: scroll;
+    flex-grow: 1;
+    display: block;
+    height: 90%;
+    width: inherit;
+    border-top: 1px solid #00000080;
+    padding-top: 0.5em;
+    box-sizing: border-box;
+    flex-grow: 1;
+}
+
+.message__input__container {
+    display: flex;
+    height: 2em;
+    width: inherit;
+    border-top: 1px solid #00000080;
+}
+
+.message__input {
+    float: left;
+    height: inherit;
+    width: 85%;
+    border-top: 1px solid #00000080;
+    box-sizing: border-box;
+}
+
+.message__send__button {
+    height: inherit;
+    flex-grow: 1;
+    border-top: 1px solid #00000080;
+    box-sizing: border-box;
+}
