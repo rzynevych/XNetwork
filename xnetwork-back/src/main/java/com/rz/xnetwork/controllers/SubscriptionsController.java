@@ -1,5 +1,7 @@
 package com.rz.xnetwork.controllers;
 
+import com.rz.xnetwork.models.AppUser;
+import com.rz.xnetwork.security.UserHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,13 +19,15 @@ public class SubscriptionsController {
 
     @GetMapping("/addSubscription")
     public Status addSubscription(@RequestParam Long userId) {
-        
-        return subscriptionService.addSubscription(userId);
+
+        AppUser user = UserHandler.getAuthorizedAppUser();
+        return subscriptionService.addSubscription(user.getUserId(), userId);
     }
 
     @GetMapping("/removeSubscription")
     public Status removeSubscription(@RequestParam Long userId) {
-        
-        return subscriptionService.removeSubscription(userId);
+
+        AppUser user = UserHandler.getAuthorizedAppUser();
+        return subscriptionService.removeSubscription(user.getUserId(), userId);
     }
 }

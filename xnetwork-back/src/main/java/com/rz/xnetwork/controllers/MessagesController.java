@@ -1,5 +1,7 @@
 package com.rz.xnetwork.controllers;
 
+import com.rz.xnetwork.models.AppUser;
+import com.rz.xnetwork.security.UserHandler;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
@@ -31,40 +33,44 @@ public class MessagesController {
 
     @GetMapping("/getOwnPosts")
     public List<Message> getOwnPosts(@RequestParam int page, @RequestParam int size) {
-        
-        return messageService.getOwnPosts(page, size);
+
+        AppUser user = UserHandler.getAuthorizedAppUser();
+        return messageService.getOwnPosts(user.getUserId(), page, size);
     }
 
     @GetMapping("/getPosts")
     public List<Message> getOPosts(@RequestParam int page, @RequestParam int size) {
-        
-        return messageService.getPosts(page, size);
+
+        AppUser user = UserHandler.getAuthorizedAppUser();
+        return messageService.getPosts(user.getUserId(), page, size);
     }
 
     @PostMapping("/uploadPost")
-    public Message uploadPost(@RequestBody SendMessageDto sendMessageDTO)
-    {
-        return messageService.uploadPost(sendMessageDTO);
+    public Message uploadPost(@RequestBody SendMessageDto sendMessageDTO) {
+
+        return messageService.uploadPost(sendMessageDTO, UserHandler.getAuthorizedAppUser());
     }
 
     @GetMapping("/getChatMessages")
     public List<Message> getChatMessages(@RequestParam Long converserId, 
         @RequestParam int page, @RequestParam int size) {
 
-        return messageService.getChatMessages(converserId, page, size);
+        AppUser user = UserHandler.getAuthorizedAppUser();
+        return messageService.getChatMessages(converserId, user.getUserId(), page, size);
     }
 
     @GetMapping("getNewMessages")
     public List<Message> getNewMessages(@RequestParam Long converserId, @RequestParam Long lastMessageId) {
 
-        return messageService.getNewMessages(converserId, lastMessageId);
+        AppUser user = UserHandler.getAuthorizedAppUser();
+        return messageService.getNewMessages(user.getUserId(), converserId, lastMessageId);
     }
 
     @PostMapping("uploadMessage")
     public Message uploadMessage(@RequestBody SendMessageDto sendMessageDTO)
     {
-        
-        return messageService.uploadMessage(sendMessageDTO);
+
+        return messageService.uploadMessage(sendMessageDTO, UserHandler.getAuthorizedAppUser());
     }
 
     @MessageMapping("/messaging") 

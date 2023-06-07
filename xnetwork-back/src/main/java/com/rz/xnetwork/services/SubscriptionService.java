@@ -18,19 +18,17 @@ public class SubscriptionService {
     
     private final SubscriptionRepository subscriptionRepository;
 
-    public Status addSubscription(Long userId) {
+    public Status addSubscription(Long subscriberId, Long userId) {
         
-        AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
-        if (subscriptionRepository.existsSubscription(appUser.getUserId(), userId))
-            return new Status(false, "Subscription alredy exists");
-        subscriptionRepository.save(new Subscription(appUser.getUserId(), userId));
+        if (subscriptionRepository.existsSubscription(subscriberId, userId))
+            return new Status(false, "Subscription already exists");
+        subscriptionRepository.save(new Subscription(subscriberId, userId));
         return new Status(true, "");
     }
 
-    public Status removeSubscription(Long userId) {
+    public Status removeSubscription(Long subscriberId, Long userId) {
         
-        AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
-        subscriptionRepository.deleteByUsrIdAndSubId(appUser.getUserId(), userId);
+        subscriptionRepository.deleteByUsrIdAndSubId(subscriberId, userId);
         return new Status(true, "");
     }
 }

@@ -21,10 +21,10 @@ public class ChatService {
     
     private final ChatRepository chatRepository;
 
-    public List<ChatListElem> getChatList(int page, int size) {
+    public List<ChatListElem> getChatList(Long userId, int page, int size) {
        
-        AppUser appUser = UserHandler.getAuthorizedAppUser();
-        List<ChatListElem> users = chatRepository.getChatList(appUser.getUserId(), PageRequest.of(page, size, Sort.by("lastUsed").descending()));
+        List<ChatListElem> users = chatRepository.getChatList(userId,
+                PageRequest.of(page, size, Sort.by("lastUsed").descending()));
         return users;
     }
 }

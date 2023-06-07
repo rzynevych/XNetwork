@@ -33,55 +33,50 @@ public class MessageService {
     private final ChatRepository chatRepository;
     private final SimpMessagingTemplate simpMessagingTemplate;
     
-    public List<Message> getOwnPosts(int page, int size) {
-        AppUser user = UserHandler.getAuthorizedUser().getAppUser();
-        List<Message> posts = messageRepository.selectOwnPosts(user.getUserId(),
+    public List<Message> getOwnPosts(Long userId, int page, int size) {
+        List<Message> posts = messageRepository.selectOwnPosts(userId,
             PageRequest.of(page, size, Sort.by("messageId").descending()));
         return posts;
     }
 
-    public List<Message> getPosts(int page, int size) {
-        AppUser user = UserHandler.getAuthorizedUser().getAppUser();
-        List<Message> posts = messageRepository.selectPosts(user.getUserId(), PageRequest.of(page, size, Sort.by("messageId").descending()));
+    public List<Message> getPosts(Long userId, int page, int size) {
+        List<Message> posts = messageRepository.selectPosts(userId,
+                PageRequest.of(page, size, Sort.by("messageId").descending()));
         return posts;
     }
 
-    public Message uploadPost(SendMessageDto sendMessageDTO)
+    public Message uploadPost(SendMessageDto sendMessageDTO, AppUser user)
     {
-        AppUser user = UserHandler.getAuthorizedUser().getAppUser();
         Message message = new Message(user.getUserId(), 0L, user.getUsername(), sendMessageDTO.getText());
         return messageRepository.save(message);
     }
 
-    public List<Message> getChatMessages(Long converserID, int page, int size) {
+    public List<Message> getChatMessages(Long converserId, Long userId, int page, int size) {
         
-        AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
         List<Message> messages = messageRepository.getMessagesForChat(
-                appUser.getUserId(), converserID, 
+                userId, converserId,
                 PageRequest.of(page, size, Sort.by("messageId").ascending()));
         return messages;
     }
 
-    public List<Message> getNewMessages(Long converserID, Long lastMessageID) {
+    public List<Message> getNewMessages(Long userId, Long converserId, Long lastMessageID) {
 
-        AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
-        List<Message> messages = messageRepository.getMessagesForUpdate(converserID,
-            appUser.getUserId(), lastMessageID, Sort.by("messageId").descending());
+        List<Message> messages = messageRepository.getMessagesForUpdate(converserId,
+            userId, lastMessageID, Sort.by("messageId").descending());
         return messages;
     }
 
-    public Message uploadMessage(SendMessageDto sendMessageDto)
+    public Message uploadMessage(SendMessageDto sendMessageDto, AppUser user)
     {
-        AppUser user = UserHandler.getAuthorizedUser().getAppUser();
-        Long converserID = sendMessageDto.getConverserId();
-        AppUser converser = appUserRepository.findByUserId(converserID) ;
-        if (chatRepository.existsChat(user.getUserId(), converserID))
-            chatRepository.updateChat(user.getUserId(), converserID);
+        Long converserId = sendMessageDto.getConverserId();
+        AppUser converser = appUserRepository.findByUserId(converserId) ;
+        if (chatRepository.existsChat(user.getUserId(), converserId))
+            chatRepository.updateChat(user.getUserId(), converserId);
         else
-            chatRepository.save(new Chat(user.getUserId(), converserID, new Date()));
+            chatRepository.save(new Chat(user.getUserId(), converserId, new Date()));
         Message message = new Message(
             user.getUserId(), 
-            converserID, 
+            converserId,
             user.getUsername(), 
             sendMessageDto.getText()
         );

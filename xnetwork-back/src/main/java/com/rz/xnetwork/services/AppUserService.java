@@ -21,22 +21,22 @@ public class AppUserService {
     
     private final AppUserRepository appUserRepository;
 
-    public List<UserListElem> getSubscriberList(int page, int size) {
-        AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
-        List<UserListElem> users = appUserRepository.getSubscribersForUser(appUser.getUserId(), PageRequest.of(page, size, Sort.by("username").descending()));
+    public List<UserListElem> getSubscriberList(Long userId, int page, int size) {
+        List<UserListElem> users = appUserRepository.getSubscribersForUser(userId,
+                PageRequest.of(page, size, Sort.by("username").descending()));
         return users;
     }
 
-    public List<UserListElem> getSubscriptionList(int page, int size) {
-        AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
-        List<UserListElem> users = appUserRepository.getSubscribersForUser(appUser.getUserId(), PageRequest.of(page, size, Sort.by("username").descending()));
+    public List<UserListElem> getSubscriptionList(Long userId, int page, int size) {
+        List<UserListElem> users = appUserRepository.getSubscribersForUser(userId,
+                PageRequest.of(page, size, Sort.by("username").descending()));
         return users;
     }
 
-    public List<UserListElem> getUsersByQuery(String query, int page, int size) {
+    public List<UserListElem> getUsersByQuery(String query, Long userId, int page, int size) {
 
-        AppUser appUser = UserHandler.getAuthorizedUser().getAppUser();
-        List<UserListElem> users = appUserRepository.getUsersByQuery(query, appUser.getUserId(), PageRequest.of(page, size, Sort.by("username").ascending()));
+        List<UserListElem> users = appUserRepository.getUsersByQuery(query, userId,
+                PageRequest.of(page, size, Sort.by("username").ascending()));
         return users;
     }
 }
