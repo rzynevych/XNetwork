@@ -59,10 +59,10 @@ public class MessageService {
         return messages;
     }
 
-    public List<Message> getNewMessages(Long userId, Long converserId, Long lastMessageID) {
+    public List<Message> getNewMessages(Long converserId, Long userId, Long lastMessageID) {
 
         List<Message> messages = messageRepository.getMessagesForUpdate(converserId,
-            userId, lastMessageID, Sort.by("messageId").descending());
+            userId, lastMessageID, PageRequest.of(0, 50, Sort.by("messageId").ascending()));
         return messages;
     }
 

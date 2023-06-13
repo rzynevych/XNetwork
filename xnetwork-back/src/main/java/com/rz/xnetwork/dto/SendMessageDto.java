@@ -7,6 +7,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SendMessageDto {
     
-    Long converserId;
-    String text;
+    private Long converserId;
+    private String text;
 }

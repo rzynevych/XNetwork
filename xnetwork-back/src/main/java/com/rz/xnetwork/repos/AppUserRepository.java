@@ -20,8 +20,8 @@ public interface AppUserRepository extends JpaRepository<AppUser, Integer> {
             + "CASE WHEN s1 IS NOT NULL THEN TRUE ELSE FALSE END, "
             + "CASE WHEN s2 IS NOT NULL THEN TRUE ELSE FALSE END) "
             + "from AppUser u "
-            + "INNER JOIN Subscription s1 ON s1.subscriberId=u.userId AND s1.userId=?2 "
-            + "LEFT JOIN Subscription s2 ON s2.userId=u.userId AND s2.subscriberId=?2 ")
+            + "INNER JOIN Subscription s1 ON s1.subscriberId=u.userId AND s1.userId=?1 "
+            + "LEFT JOIN Subscription s2 ON s2.userId=u.userId AND s2.subscriberId=?1 ")
     public List<UserListElem> getSubscribersForUser(Long userId, Pageable pageable);
 
     @Query(value = "SELECT new com.rz.xnetwork.dto.UserListElem( "
@@ -29,8 +29,8 @@ public interface AppUserRepository extends JpaRepository<AppUser, Integer> {
             + "CASE WHEN s1 IS NOT NULL THEN TRUE ELSE FALSE END, "
             + "CASE WHEN s2 IS NOT NULL THEN TRUE ELSE FALSE END) "
             + "from AppUser u "
-            + "LEFT JOIN Subscription s1 ON s1.subscriberId=u.userId AND s1.userId=?2 "
-            + "INNER JOIN Subscription s2 ON s2.userId=u.userId AND s2.subscriberId=?2 ")
+            + "LEFT JOIN Subscription s1 ON s1.subscriberId=u.userId AND s1.userId=?1 "
+            + "INNER JOIN Subscription s2 ON s2.userId=u.userId AND s2.subscriberId=?1 ")
     public List<UserListElem> getSubscriptionsForUser(Long userId, Pageable pageable);
 
     @Query(value = "SELECT new com.rz.xnetwork.dto.UserListElem( "
@@ -41,6 +41,6 @@ public interface AppUserRepository extends JpaRepository<AppUser, Integer> {
             + "LEFT JOIN Subscription s1 ON s1.subscriberId=u.userId AND s1.userId=?2 "
             + "LEFT JOIN Subscription s2 ON s2.userId=u.userId AND s2.subscriberId=?2 "
             + "WHERE u.username LIKE CONCAT(?1, '%') OR u.email LIKE CONCAT(?1, '%')")
-    public List<UserListElem> getUsersByQuery(String query, Long user_id, Pageable pageable);
+    public List<UserListElem> getUsersByQuery(String query, Long userId, Pageable pageable);
 
 }

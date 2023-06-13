@@ -1,8 +1,5 @@
 package com.rz.xnetwork.services;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import com.rz.xnetwork.dto.UserListElem;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -12,12 +9,28 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 @SpringBootTest
 public class AppUserServiceTest {
 
     @Autowired AppUserService appUserService;
 
     Logger logger = LoggerFactory.getLogger(AppUserServiceTest.class);
+
+    @Test
+    void getSubscriberListTest() {
+        List<UserListElem> users = appUserService.getSubscriberList(1L, 0, 50);
+        assertTrue(users.size() > 0);
+        logger.info(users.get(0).toString());
+    }
+
+    @Test
+    void getSubscriptionListTest() {
+        List<UserListElem> users = appUserService.getSubscriptionList(1L, 0, 50);
+        assertTrue(users.size() > 0);
+        logger.info(users.get(0).toString());
+    }
 
     @Test
     void getUsersByQueryTest() {

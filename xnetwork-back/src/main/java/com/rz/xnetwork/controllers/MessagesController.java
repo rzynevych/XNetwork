@@ -63,7 +63,7 @@ public class MessagesController {
     public List<Message> getNewMessages(@RequestParam Long converserId, @RequestParam Long lastMessageId) {
 
         AppUser user = UserHandler.getAuthorizedAppUser();
-        return messageService.getNewMessages(user.getUserId(), converserId, lastMessageId);
+        return messageService.getNewMessages(converserId, user.getUserId(), lastMessageId);
     }
 
     @PostMapping("uploadMessage")

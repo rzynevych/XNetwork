@@ -21,6 +21,6 @@ public interface MessageRepository extends JpaRepository<Message, Integer> {
     List<Message> getMessagesForChat(Long userID1, Long userID2, Pageable pageable);
 
     @Query(value = "select m from Message m where (m.senderId=?1 AND m.receiver=?2) and m.messageId > ?3")
-    List<Message> getMessagesForUpdate(Long userID1, Long userID2, Long lastMessageID, Sort sort);
+    List<Message> getMessagesForUpdate(Long userID1, Long userID2, Long lastMessageID, Pageable pageable);
 
 }
